@@ -48,11 +48,11 @@ t_var	*user_interface(t_var *v, int type)
 				v->x++;
 		v->x = 25;
 		v->y = 25;
-		mlx_draw(v, 188, 193);
-		v->y = 217;
-		mlx_draw(v, 188, 326);
-		v->y = 351;
-		mlx_draw(v, 188, 439);
+		mlx_draw(v, 188, 173);
+		v->y = 197;
+		mlx_draw(v, 188, 306);
+		v->y = 331;
+		mlx_draw(v, 188, 419);
 		v->y = (WIN_H - 65);
 		v->x = v->len - 1;
 		mlx_draw(v, (WIN_W - 25), (WIN_H - 25));
@@ -64,23 +64,22 @@ void	user_interface_texts(t_var *v)
 {
 	v->nam = ft_strjoin("Fractal : ", v->ftl[1]);
 	mlx_string_put(v->mlx, v->win, 41, 35, UI_COLOR, "Controls Keys");
-	mlx_string_put(v->mlx, v->win, 37, 63, UI_COLOR, "Quit = ESC");
-	mlx_string_put(v->mlx, v->win, 37, 83, UI_COLOR, "Colr = C");
-	mlx_string_put(v->mlx, v->win, 37, 103, UI_COLOR, "Iter = W and S");
-	mlx_string_put(v->mlx, v->win, 37, 123, UI_COLOR, "Zoom = + and -");
-	mlx_string_put(v->mlx, v->win, 37, 143, UI_COLOR, "Presets = < >");
-	mlx_string_put(v->mlx, v->win, 37, 163, UI_COLOR, "Reset = CLEAR");
-	mlx_string_put(v->mlx, v->win, 37, 228, UI_COLOR, "Controls Mouse");
-	mlx_string_put(v->mlx, v->win, 37, 256, UI_COLOR, "Julia = MOVE");
-	mlx_string_put(v->mlx, v->win, 37, 276, UI_COLOR, "Zoom = SCROLL");
-	mlx_string_put(v->mlx, v->win, 37, 296, UI_COLOR, "or LMB and RMB");
-	mlx_string_put(v->mlx, v->win, 37, 361, UI_COLOR, "Fract Explorer");
+	mlx_string_put(v->mlx, v->win, 37, 63, UI_COLOR, "Colr = C");
+	mlx_string_put(v->mlx, v->win, 37, 83, UI_COLOR, "Iter = W and S");
+	mlx_string_put(v->mlx, v->win, 37, 103, UI_COLOR, "Zoom = + and -");
+	mlx_string_put(v->mlx, v->win, 37, 123, UI_COLOR, "Presets = < >");
+	mlx_string_put(v->mlx, v->win, 37, 143, UI_COLOR, "Reset = CLEAR");
+	mlx_string_put(v->mlx, v->win, 37, 208, UI_COLOR, "Controls Mouse");
+	mlx_string_put(v->mlx, v->win, 37, 236, UI_COLOR, "Julia = MOVE");
+	mlx_string_put(v->mlx, v->win, 37, 256, UI_COLOR, "Zoom = SCROLL");
+	mlx_string_put(v->mlx, v->win, 37, 276, UI_COLOR, "or LMB and RMB");
+	mlx_string_put(v->mlx, v->win, 37, 341, UI_COLOR, "Fract Explorer");
 	//if (v->p > 0)
-		mlx_string_put(v->mlx, v->win, 37, 389, UI_COLOR, "Prev = PAGE UP");
+		mlx_string_put(v->mlx, v->win, 37, 369, UI_COLOR, "Prev = PAGE UP");
 	//else
 	//	mlx_string_put(v->mlx, v->win, 37, 256, UI2_COLOR, "Prev = PAGE UP");
 	//if (v->p < v->max)
-		mlx_string_put(v->mlx, v->win, 37, 409, UI_COLOR, "Next = PAGE DW");
+		mlx_string_put(v->mlx, v->win, 37, 389, UI_COLOR, "Next = PAGE DW");
 	//else
 	//	mlx_string_put(v->mlx, v->win, 37, 276, UI2_COLOR, "Next = PAGE DW");
 	mlx_string_put(v->mlx, v->win, v->len + 11, (WIN_H - 55), UI_COLOR, v->nam);
