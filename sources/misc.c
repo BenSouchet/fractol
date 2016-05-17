@@ -17,11 +17,3 @@ void    draw_line(t_var *v, t_point *p1, t_point *p2)
         tx += 1. / sqrt((dist_x * dist_x) + (dist_y * dist_y));
     }
 }
-
-void         omg_bro(int num_points, int diameter)
-{
-    double spacing;
-
-    spacing = (num_points < 360) ? 360.0 / (double)num_points : 360;
-    printf("degrees : %f\n");
-}

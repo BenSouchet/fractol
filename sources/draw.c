@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:39:52 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/02 19:38:12 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/17 13:01:27 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_var	*user_interface(t_var *v, int type)
 		while (++v->y < WIN_H && (v->x = 0) > -1)
 			while (v->x <= 213 && put_pixel(v, BG_COLOR, 0) == 0)
 				v->x++;
+		v->nam = ft_strjoin("Fractal : ", toupper(v->ftl[1]));
+		v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
 		v->x = 25;
 		v->y = 25;
 		mlx_draw(v, 188, 173);
@@ -62,7 +64,6 @@ t_var	*user_interface(t_var *v, int type)
 
 void	user_interface_texts(t_var *v)
 {
-	v->nam = ft_strjoin("Fractal : ", v->ftl[1]);
 	mlx_string_put(v->mlx, v->win, 41, 35, UI_COLOR, "Controls Keys");
 	mlx_string_put(v->mlx, v->win, 37, 63, UI_COLOR, "Colr = C");
 	mlx_string_put(v->mlx, v->win, 37, 83, UI_COLOR, "Iter = W and S");
@@ -83,6 +84,7 @@ void	user_interface_texts(t_var *v)
 	//else
 	//	mlx_string_put(v->mlx, v->win, 37, 276, UI2_COLOR, "Next = PAGE DW");
 	mlx_string_put(v->mlx, v->win, v->len + 11, (WIN_H - 55), UI_COLOR, v->nam);
+	free(v->nam);
 }
 
 void	mlx_draw(t_var *v, int x, int y)
