@@ -6,7 +6,7 @@
 #    By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:48:09 by bsouchet          #+#    #+#              #
-#    Updated: 2016/05/02 17:48:09 by bsouchet         ###   ########.fr        #
+#    Updated: 2016/05/17 19:10:32 by bsouchet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SOURCES = ft_abs.c \
 		  ft_strcpy.c \
 		  ft_memset.c \
 		  ft_putchar_fd.c \
+		  ft_firstupper.c \
 		  ft_putnbr_fd.c \
 		  ft_putstr_fd.c \
 		  ft_strlen.c \
@@ -56,9 +57,9 @@ $(DIR_O)/%.o: $(DIR_S)/%.c
 	@$(CC) $(FLAGS) -I $(HEADER) -o $@ -c $<
 
 norme:
-	norminette $(HEADER)
+	norminette ../libft/$(HEADER)
 	@echo
-	norminette $(DIR_S)
+	norminette ../libft/$(DIR_S)
 
 clean:
 	@rm -f $(OBJS)

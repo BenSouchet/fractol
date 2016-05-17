@@ -6,7 +6,7 @@
 /*   By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 13:30:40 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/17 12:46:43 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/17 13:10:38 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strjoin2(char *s1, char *s2, int type);
 
 int				ft_strcmp(char *s1, char *s2);
+
+char			*ft_firstupper(char *str);
 
 int				ft_rand(int min, int max);
 

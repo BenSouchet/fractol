@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:26:10 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/02 18:51:17 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/17 19:09:39 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define BG2_COLOR 0x2D2D2D
 # define UI_COLOR 0x84AC00
 # define UI2_COLOR 0x647C15
-# define MIN_V 105
+# define PROG_NAME "fract'ol - bsouchet"
 # define WIN_W 1280
 # define WIN_H 720
 
@@ -37,11 +37,12 @@ typedef struct	s_var
 	int			sl;
 	int			len;
 	int			nbr;
+	int			num;
 	int			bpp;
 	int			end;
 	char		*d;
 	char		*nam;
-	char		**ftl;
+	char		ftl[3][12];
 	void		*img;
 	void		*mlx;
 	void		*win;

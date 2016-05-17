@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:39:52 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/17 13:01:27 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/17 17:23:57 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int		put_pixel(t_var *v, int color, int type)
 
 t_var	*user_interface(t_var *v, int type)
 {
-	v->len = WIN_W - 50 - ft_strlen(ft_strjoin("Fractal : ", v->ftl[1])) * 10;
 	v->y = -1;
 	if (type == 1)
 		while (++v->y < WIN_H && (v->x = 214) > -1)
@@ -46,7 +45,7 @@ t_var	*user_interface(t_var *v, int type)
 		while (++v->y < WIN_H && (v->x = 0) > -1)
 			while (v->x <= 213 && put_pixel(v, BG_COLOR, 0) == 0)
 				v->x++;
-		v->nam = ft_strjoin("Fractal : ", toupper(v->ftl[1]));
+		v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
 		v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
 		v->x = 25;
 		v->y = 25;
@@ -54,7 +53,7 @@ t_var	*user_interface(t_var *v, int type)
 		v->y = 197;
 		mlx_draw(v, 188, 306);
 		v->y = 331;
-		mlx_draw(v, 188, 419);
+		mlx_draw(v, 188, 439);
 		v->y = (WIN_H - 65);
 		v->x = v->len - 1;
 		mlx_draw(v, (WIN_W - 25), (WIN_H - 25));
@@ -75,14 +74,18 @@ void	user_interface_texts(t_var *v)
 	mlx_string_put(v->mlx, v->win, 37, 256, UI_COLOR, "Zoom = SCROLL");
 	mlx_string_put(v->mlx, v->win, 37, 276, UI_COLOR, "or LMB and RMB");
 	mlx_string_put(v->mlx, v->win, 37, 341, UI_COLOR, "Fract Explorer");
-	//if (v->p > 0)
-		mlx_string_put(v->mlx, v->win, 37, 369, UI_COLOR, "Prev = PAGE UP");
-	//else
-	//	mlx_string_put(v->mlx, v->win, 37, 256, UI2_COLOR, "Prev = PAGE UP");
-	//if (v->p < v->max)
-		mlx_string_put(v->mlx, v->win, 37, 389, UI_COLOR, "Next = PAGE DW");
-	//else
-	//	mlx_string_put(v->mlx, v->win, 37, 276, UI2_COLOR, "Next = PAGE DW");
+	if (v->num == 1)
+		mlx_string_put(v->mlx, v->win, 37, 369, UI_COLOR, "Julia = 1");
+	else
+		mlx_string_put(v->mlx, v->win, 37, 369, UI2_COLOR, "Julia = 1");
+	if (v->num == 2)
+		mlx_string_put(v->mlx, v->win, 37, 389, UI_COLOR, "Mandelbrot = 2");
+	else
+		mlx_string_put(v->mlx, v->win, 37, 389, UI2_COLOR, "Mandelbrot = 2");
+	if (v->num == 3)
+		mlx_string_put(v->mlx, v->win, 37, 409, UI_COLOR, "Toisieme = 3");
+	else
+		mlx_string_put(v->mlx, v->win, 37, 409, UI2_COLOR, "Toisieme = 3");
 	mlx_string_put(v->mlx, v->win, v->len + 11, (WIN_H - 55), UI_COLOR, v->nam);
 	free(v->nam);
 }

@@ -6,11 +6,12 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:35:58 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/02 18:49:15 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/17 19:07:24 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h>
 
 int				expose_hook(t_var *v)
 {
@@ -34,6 +35,12 @@ int				key_hook(int keycode, t_var *v)
 	}
 	else
 	{
+		if (keycode == 83 && v->num != 1)
+			v->num = 1;
+		else if (keycode == 84 && v->num != 2)
+			v->num = 2;
+		else if (keycode == 85 && v->num != 3)
+			v->num = 3;
 		/*if (keycode >= 0 && keycode < 80)
 			v = key_hook_rotate(v, keycode);
 		else if (keycode > 110 && keycode < 130)
