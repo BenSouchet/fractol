@@ -25,23 +25,13 @@ static int		error(int type)
 	return (-1);
 }
 
-static void		cpy(char *s1, char *s2)
-{
-	int i;
-
-	i = -1;
-	while (s1[++i] != 0)
-		s2[i] = s1[i];
-	s2[i] = 0;
-}
-
 static int		check(t_var *v, char **av, int err)
 {
 	char	*str;
 
-	cpy("Julia\0", v->ftl[0]);
-	cpy("Mandelbrot\0", v->ftl[1]);
-	cpy("Troisieme\0", v->ftl[2]);
+	ft_cpy("Julia\0", v->ftl[0]);
+	ft_cpy("Mandelbrot\0", v->ftl[1]);
+	ft_cpy("Troisieme\0", v->ftl[2]);
 	if (ft_strcmp(av[1], "Julia") == 0 ||
 		ft_strcmp(av[1], "julia") == 0)
 		v->num = 1;
@@ -79,7 +69,7 @@ int				main(int ac, char **av)
 {
 	t_var *v;
 
-	v = (t_var *)malloc(sizeof(t_var) * 1);
+	v = (t_var *)malloc(sizeof(t_var));
 	v->nbr = ac;
 	if (ac != 2)
 		return (error(0));

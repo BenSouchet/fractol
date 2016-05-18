@@ -53,7 +53,7 @@ int				key_hook(int keycode, t_var *v);
 int				close_hook(int button, t_var *v);
 
 int				put_pixel(t_var *v, int color, int type);
-t_var			*user_interface(t_var *v, int type);
+void			user_interface(t_var *v);
 void			user_interface_texts(t_var *v);
 
 void			mlx_draw(t_var *v, int x, int y);

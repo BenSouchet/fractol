@@ -33,32 +33,24 @@ int		put_pixel(t_var *v, int color, int type)
 	return (0);
 }
 
-t_var	*user_interface(t_var *v, int type)
+void    user_interface(t_var *v)
 {
 	v->y = -1;
-	if (type == 1)
-		while (++v->y < WIN_H && (v->x = 214) > -1)
-			while (v->x < WIN_W && put_pixel(v, BG2_COLOR, 0) == 0)
-				v->x++;
-	else if (type == 2)
-	{
-		while (++v->y < WIN_H && (v->x = 0) > -1)
-			while (v->x <= 213 && put_pixel(v, BG_COLOR, 0) == 0)
-				v->x++;
-		v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
-		v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
-		v->x = 25;
-		v->y = 25;
-		mlx_draw(v, 188, 173);
-		v->y = 197;
-		mlx_draw(v, 188, 306);
-		v->y = 331;
-		mlx_draw(v, 188, 439);
-		v->y = (WIN_H - 65);
-		v->x = v->len - 1;
-		mlx_draw(v, (WIN_W - 25), (WIN_H - 25));
-	}
-	return (v);
+	while (++v->y < WIN_H && (v->x = 0) > -1)
+		while (v->x <= 213 && put_pixel(v, BG_COLOR, 0) == 0)
+			v->x++;
+	v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
+	v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
+	v->x = 25;
+	v->y = 25;
+	mlx_draw(v, 188, 173);
+	v->y = 197;
+	mlx_draw(v, 188, 306);
+	v->y = 331;
+	mlx_draw(v, 188, 439);
+	v->y = (WIN_H - 65);
+	v->x = v->len - 1;
+	mlx_draw(v, (WIN_W - 25), (WIN_H - 25));
 }
 
 void	user_interface_texts(t_var *v)
