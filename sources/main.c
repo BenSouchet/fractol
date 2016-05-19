@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:30:09 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/17 19:11:52 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/19 16:53:01 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ static int		check(t_var *v, char **av, int err)
 
 static void		init_win(t_var *v)
 {
+	v->imax = 50;
+	v->minx = -2.1;
+	v->miny = -1.2;
+	v->maxx = 0.6;
+	v->maxy = 1.2;
+	v->minx -= ((MAX_X - MIN_X) / WIN_W) * 440; //
+	v->maxx -= ((MAX_X - MIN_X) / WIN_W) * 440; //
 	v->mlx = mlx_init();
 	v->img = mlx_new_image(v->mlx, WIN_W, WIN_H);
 	v->win = mlx_new_window(v->mlx, -1, -1, WIN_W, WIN_H, PROG_NAME);

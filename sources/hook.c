@@ -6,25 +6,24 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:35:58 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/17 19:07:24 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/19 11:54:28 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
-int				expose_hook(t_var *v)
+int		expose_hook(t_var *v)
 {
 	v->img = mlx_new_image(v->mlx, WIN_W, WIN_H);
 	v->d = mlx_get_data_addr(v->img, &v->bpp, &v->sl, &v->end);
-	/*mettre le taf*/
+	draw_fractal(v);
     user_interface(v);
 	mlx_put_image_to_window(v->mlx, v->win, v->img, 0, 0);
 	user_interface_texts(v);
 	return (0);
 }
 
-int				key_hook(int keycode, t_var *v)
+int		key_hook(int keycode, t_var *v)
 {
     int redraw;
 
@@ -57,7 +56,7 @@ int				key_hook(int keycode, t_var *v)
 	return (0);
 }
 
-int				close_hook(int button, t_var *v)
+int		close_hook(int button, t_var *v)
 {
 	(void)button;
 	(void)v;

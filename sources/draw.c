@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:39:52 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/17 17:23:57 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/19 16:53:39 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,27 @@ int		put_pixel(t_var *v, int color, int type)
 	return (0);
 }
 
+void	draw_fractal(t_var *v)
+{
+	v->y = -1;
+	while (++v->y < WIN_H && (v->x = 213) == 213)
+	{
+		while (++v->x < WIN_W)
+		{
+			if (v->num == 1)
+				fractal_julia(v);
+			else if (v->num == 2)
+				fractal_mandelbrot(v, 2.0);
+			else if (v->num == 3)
+				fractal_mandelbrot(v, -2.0);
+		}
+	}
+}
+
 void    user_interface(t_var *v)
 {
 	v->y = -1;
-	while (++v->y < WIN_H && (v->x = 0) > -1)
+	while (++v->y < WIN_H && (v->x = 0) == 0)
 		while (v->x <= 213 && put_pixel(v, BG_COLOR, 0) == 0)
 			v->x++;
 	v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
