@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:09:02 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/19 18:18:54 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/20 16:12:34 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	fractal_julia(t_var *v)
 
 void	fractal_mandelbrot(t_var *v, long double mod)
 {
-	int r;
-	int g;
-	int b;
+	//int r;
+	//int g;
+	//int b;
 
 	v->i = -1;
 	v->zr = 0.0;
@@ -37,13 +37,14 @@ void	fractal_mandelbrot(t_var *v, long double mod)
 		v->zr = (v->zr * v->zr) - (v->zi * v->zi) + v->cr;
 		v->zi = mod * v->zi * v->tmp + v->ci;
 	}
-	r = 255.0 * (1.0 - ((double)v->i/(double)v->imax));
+	put_pixel(v, ft_gradient_color(0x2C2C2C, UI_COLOR, (D(v->i)/D(v->imax))), 0);
+	/*r = 255.0 * (1.0 - ((double)v->i/(double)v->imax));
 	g = 255.0 * (1.0 - ((double)v->i/(double)v->imax));
 	b = 255.0 * (1.0 - ((double)v->i/(double)v->imax));
 	//printf("r: %f --- g: %f --- b: %f\n", r, g, b);
 	int color = ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
 	//if (v->i == 50)
-		put_pixel(v, color, 0);
+		put_pixel(v, color, 0);*/
 }
 
 void	fractal_troisieme(t_var *v)

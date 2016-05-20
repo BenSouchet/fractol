@@ -6,7 +6,7 @@
 #    By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:48:09 by bsouchet          #+#    #+#              #
-#    Updated: 2016/05/17 19:10:32 by bsouchet         ###   ########.fr        #
+#    Updated: 2016/05/20 15:45:46 by bsouchet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,9 @@ SOURCES = ft_abs.c \
 		  ft_strcmp.c \
 		  ft_memalloc.c \
 		  ft_rand.c \
+		  ft_darken_color.c \
+		  ft_lighten_color.c \
+		  ft_gradient_color.c
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 

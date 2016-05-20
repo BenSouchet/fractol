@@ -6,7 +6,7 @@
 /*   By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 13:30:40 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/17 13:10:38 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/20 15:42:36 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <errno.h>
+# include <math.h>
 
 # define BUFF_SIZE 1
+# define D (double)
 
 int				ft_abs(int n);
 
@@ -47,5 +49,10 @@ int				ft_strcmp(char *s1, char *s2);
 char			*ft_firstupper(char *str);
 
 int				ft_rand(int min, int max);
+
+int				ft_darken_color(int clr, double val);
+int				ft_lighten_color(int clr, double val);
+int				ft_gradient_color(int clr1, int clr2, double val);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:26:10 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/19 16:25:53 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/20 15:49:13 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../libft/include/libft.h"
 # include "../libmlx/includes/mlx.h"
 
+# define D (double)
 # define PI 3.14159265359
 # define BG_COLOR 0x353535
 # define BG2_COLOR 0x2D2D2D
