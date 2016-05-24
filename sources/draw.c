@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-int		put_pixel(t_var *v, int color, int type)
+int		put_pixel(t_var *v, int type)
 {
 	int		i;
 	int		x;
@@ -25,7 +25,7 @@ int		put_pixel(t_var *v, int color, int type)
 			&& x < WIN_W && y >= 0 && y < WIN_H)
 	{
 		i = ((int)v->x * (v->bpp / 8)) + ((int)v->y * v->sl);
-		rgb = (char*)&color;
+		rgb = (char*)&v->color;
 		v->d[i] = rgb[0];
 		v->d[++i] = rgb[1];
 		v->d[++i] = rgb[2];
@@ -43,9 +43,9 @@ void	draw_fractal(t_var *v)
 			if (v->num == 1)
 				fractal_julia(v);
 			else if (v->num == 2)
-				fractal_mandelbrot(v, 2.0);
+				fractal_mandelbrot(v);
 			else if (v->num == 3)
-				fractal_mandelbrot(v, -2.0);
+				fractal_mandelbrot(v);
 		}
 	}
 }
@@ -53,8 +53,9 @@ void	draw_fractal(t_var *v)
 void    user_interface(t_var *v)
 {
 	v->y = -1;
+    v->color = BG_COLOR;
 	while (++v->y < WIN_H && (v->x = 0) == 0)
-		while (v->x <= 213 && put_pixel(v, BG_COLOR, 0) == 0)
+		while (v->x <= 213 && put_pixel(v, 0) == 0)
 			v->x++;
 	v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
 	v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
@@ -106,12 +107,13 @@ void	mlx_draw(t_var *v, int x, int y)
 
 	tmp1 = v->x;
 	tmp2 = v->y;
-	while (v->x <= x && put_pixel(v, UI_COLOR, 0) == 0)
+    v->color = UI_COLOR;
+	while (v->x <= x && put_pixel(v, 0) == 0)
 		v->x++;
-	while (v->y <= y && put_pixel(v, UI_COLOR, 0) == 0)
+	while (v->y <= y && put_pixel(v, 0) == 0)
 		v->y++;
-	while (v->x >= tmp1 && put_pixel(v, UI_COLOR, 0) == 0)
+	while (v->x >= tmp1 && put_pixel(v, 0) == 0)
 		v->x--;
-	while (v->y >= tmp2 && put_pixel(v, UI_COLOR, 0) == 0)
+	while (v->y >= tmp2 && put_pixel(v, 0) == 0)
 		v->y--;
 }

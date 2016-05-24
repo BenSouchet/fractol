@@ -13,22 +13,26 @@
 #include "fractol.h"
 #include <stdio.h>
 
-static int		error(int type)
+static int		error(int type, char **av)
 {
+    char *str;
+
 	if (type == 0)
 		write(2, MSG00, 29);
 	else if (type == 1)
-		write(2, MSG01, 51);
+		write(2, MSG01, 52);
 	else if (type == 2)
-		;
+	{
+        str = ft_strjoin2(ft_strjoin("error : ", av[1]), MSG03, 0);
+        write(2, str, ft_strlen(str));
+        free(str);
+    }
 	write(2, "\n", 1);
 	return (-1);
 }
 
-static int		check(t_var *v, char **av, int err)
+static int		check(t_var *v, char **av)
 {
-	char	*str;
-
 	ft_cpy("Julia\0", v->ftl[0]);
 	ft_cpy("Mandelbrot\0", v->ftl[1]);
 	ft_cpy("Troisieme\0", v->ftl[2]);
@@ -42,24 +46,27 @@ static int		check(t_var *v, char **av, int err)
 		ft_strcmp(av[1], "troisieme") == 0)
 		v->num = 3;
 	else
-	{
-		str = ft_strjoin2(ft_strjoin("error : ", av[1]), MSG03, 0);
-		write(2, str, ft_strlen(str));
-		free(str);
-		err++;
-	}
-	return (err);
+        return (1);
+	return (0);
+}
+
+static void     assign(t_var *v)
+{
+    v->mod = 2.0;
+    v->imax = 50.0;
+    v->minx = -2.1;
+    v->miny = -1.2;
+    v->maxx = 0.6;
+    v->maxy = 1.2;
+    v->color1 = BG2_COLOR;
+    v->color2 = OBJ_COLOR;
+    v->minx -= ((MAX_X - MIN_X) / WIN_W) * 440; //
+    v->maxx -= ((MAX_X - MIN_X) / WIN_W) * 440; //
 }
 
 static void		init_win(t_var *v)
 {
-	v->imax = 50;
-	v->minx = -2.1;
-	v->miny = -1.2;
-	v->maxx = 0.6;
-	v->maxy = 1.2;
-	v->minx -= ((MAX_X - MIN_X) / WIN_W) * 440; //
-	v->maxx -= ((MAX_X - MIN_X) / WIN_W) * 440; //
+    assign(v);
 	v->mlx = mlx_init();
 	v->img = mlx_new_image(v->mlx, WIN_W, WIN_H);
 	v->win = mlx_new_window(v->mlx, -1, -1, WIN_W, WIN_H, PROG_NAME);
@@ -79,11 +86,11 @@ int				main(int ac, char **av)
 	v = (t_var *)malloc(sizeof(t_var));
 	v->nbr = ac;
 	if (ac != 2)
-		return (error(0));
+		return (error(0, av));
 	else if (WIN_W < 1024 || WIN_H < 576)
-		return (error(1));
-	else if (check(v, av, 0) > 0)
-		return (-1);
+		return (error(1, av));
+	else if (check(v, av) > 0)
+		return (error(2, av));
 	else
 		init_win(v);
 	return (0);
