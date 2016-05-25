@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:26:10 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/20 15:49:13 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/25 17:28:50 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 
 # define D (double)
 # define PI 3.14159265359
-# define BG_COLOR 0x353535
-# define BG2_COLOR 0x2D2D2D
-# define UI_COLOR 0x84AC00
-# define UI2_COLOR 0x647C15
-# define OBJ_COLOR 0x777777
+# define BG_CLR 0x3B3B3B
+# define BG_DCLR 0x2D2D2D
+# define UI_CLR 0x84AC00
+# define UI_DCLR 0x647C15
+# define OBJ_CLR 0x777777
 # define PROG_NAME "fract'ol - bsouchet"
 # define MIN_X v->minx
 # define MIN_Y v->miny
@@ -32,9 +32,9 @@
 # define WIN_W 1280
 # define WIN_H 720
 
-# define MSG00 "usage: ./fractol fractal_name"
-# define MSG01 "error: Window size must be greater than 1024 x 576."
-# define MSG03 " isn't a valid fractal name."
+# define MSG0 "usage: ./fractol fractal_name"
+# define MSG1 "error: Window size must be greater than 1024 x 576."
+# define MSG3 " isn't a valid fractal name."
 
 typedef struct	s_var
 {
@@ -52,6 +52,7 @@ typedef struct	s_var
     int         color;
     int         color1;
     int         color2;
+	int			m;
 	char		*d;
 	char		*nam;
 	char		ftl[3][12];
@@ -78,7 +79,7 @@ void			draw_fractal(t_var *v);
 void			user_interface(t_var *v);
 void			user_interface_texts(t_var *v);
 
-void			mlx_draw(t_var *v, int x, int y);
+void			mlx_draw(t_var *v, int x, int y, int clr);
 
 void			fractal_julia(t_var *v);
 void			fractal_mandelbrot(t_var *v);

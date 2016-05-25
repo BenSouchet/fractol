@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:30:09 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/19 16:53:01 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/25 17:42:46 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static int		error(int type, char **av)
     char *str;
 
 	if (type == 0)
-		write(2, MSG00, 29);
+		write(2, MSG0, 29);
 	else if (type == 1)
-		write(2, MSG01, 52);
+		write(2, MSG1, 52);
 	else if (type == 2)
 	{
-        str = ft_strjoin2(ft_strjoin("error : ", av[1]), MSG03, 0);
+        str = ft_strjoin2(ft_strjoin("error : ", av[1]), MSG3, 0);
         write(2, str, ft_strlen(str));
         free(str);
     }
@@ -52,14 +52,15 @@ static int		check(t_var *v, char **av)
 
 static void     assign(t_var *v)
 {
-    v->mod = 2.0;
+    v->mod = -2.0;
     v->imax = 50.0;
     v->minx = -2.1;
     v->miny = -1.2;
     v->maxx = 0.6;
     v->maxy = 1.2;
-    v->color1 = BG2_COLOR;
-    v->color2 = OBJ_COLOR;
+	v->m = UI_DCLR;
+    v->color1 = 0x0F3241;
+    v->color2 = 0x9FADB3;
     v->minx -= ((MAX_X - MIN_X) / WIN_W) * 440; //
     v->maxx -= ((MAX_X - MIN_X) / WIN_W) * 440; //
 }

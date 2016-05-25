@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:39:52 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/19 16:53:39 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/25 17:31:16 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,61 +53,66 @@ void	draw_fractal(t_var *v)
 void    user_interface(t_var *v)
 {
 	v->y = -1;
-    v->color = BG_COLOR;
+    v->color = BG_CLR;
 	while (++v->y < WIN_H && (v->x = 0) == 0)
 		while (v->x <= 213 && put_pixel(v, 0) == 0)
+			v->x++;
+	v->color = BG_DCLR;
+	v->y = -1;
+	while (++v->y < WIN_H && (v->x = 214) == 214)
+		while (v->x <= 222 && put_pixel(v, 0) == 0)
 			v->x++;
 	v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
 	v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
 	v->x = 25;
 	v->y = 25;
-	mlx_draw(v, 188, 173);
+	mlx_draw(v, 188, 173, UI_CLR);
 	v->y = 197;
-	mlx_draw(v, 188, 306);
-	v->y = 331;
-	mlx_draw(v, 188, 439);
+	mlx_draw(v, 188, 286, v->m);
+	v->y = WIN_H - 133;
+	mlx_draw(v, 188, (WIN_H - 25), UI_CLR);
 	v->y = (WIN_H - 65);
 	v->x = v->len - 1;
-	mlx_draw(v, (WIN_W - 25), (WIN_H - 25));
+	mlx_draw(v, (WIN_W - 25), (WIN_H - 25), UI_CLR);
 }
 
 void	user_interface_texts(t_var *v)
 {
-	mlx_string_put(v->mlx, v->win, 41, 35, UI_COLOR, "Controls Keys");
-	mlx_string_put(v->mlx, v->win, 37, 63, UI_COLOR, "Colr = C");
-	mlx_string_put(v->mlx, v->win, 37, 83, UI_COLOR, "Iter = W and S");
-	mlx_string_put(v->mlx, v->win, 37, 103, UI_COLOR, "Zoom = + and -");
-	mlx_string_put(v->mlx, v->win, 37, 123, UI_COLOR, "Presets = < >");
-	mlx_string_put(v->mlx, v->win, 37, 143, UI_COLOR, "Reset = CLEAR");
-	mlx_string_put(v->mlx, v->win, 37, 208, UI_COLOR, "Controls Mouse");
-	mlx_string_put(v->mlx, v->win, 37, 236, UI_COLOR, "Julia = MOVE");
-	mlx_string_put(v->mlx, v->win, 37, 256, UI_COLOR, "Zoom = SCROLL");
-	mlx_string_put(v->mlx, v->win, 37, 276, UI_COLOR, "or LMB and RMB");
-	mlx_string_put(v->mlx, v->win, 37, 341, UI_COLOR, "Fract Explorer");
-	if (v->num == 1)
-		mlx_string_put(v->mlx, v->win, 37, 369, UI_COLOR, "Julia = 1");
-	else
-		mlx_string_put(v->mlx, v->win, 37, 369, UI2_COLOR, "Julia = 1");
-	if (v->num == 2)
-		mlx_string_put(v->mlx, v->win, 37, 389, UI_COLOR, "Mandelbrot = 2");
-	else
-		mlx_string_put(v->mlx, v->win, 37, 389, UI2_COLOR, "Mandelbrot = 2");
-	if (v->num == 3)
-		mlx_string_put(v->mlx, v->win, 37, 409, UI_COLOR, "Toisieme = 3");
-	else
-		mlx_string_put(v->mlx, v->win, 37, 409, UI2_COLOR, "Toisieme = 3");
-	mlx_string_put(v->mlx, v->win, v->len + 11, (WIN_H - 55), UI_COLOR, v->nam);
+	mlx_string_put(v->mlx, v->win, 41, 35, UI_CLR, "Controls Keys");
+	mlx_string_put(v->mlx, v->win, 37, 63, UI_CLR, "Iter = W and Q");
+	mlx_string_put(v->mlx, v->win, 37, 83, UI_CLR, "Zoom = + and -");
+	mlx_string_put(v->mlx, v->win, 37, 103, UI_CLR, "Mouse = M or S");
+	mlx_string_put(v->mlx, v->win, 37, 123, UI_CLR, "Color = SHIFT");
+	mlx_string_put(v->mlx, v->win, 37, 143, UI_CLR, "Reset = CLEAR");
+	mlx_string_put(v->mlx, v->win, 37, 208, v->m, "Controls Mouse");
+	mlx_string_put(v->mlx, v->win, 37, 236, v->m, "Zoom = SCROLL");
+	mlx_string_put(v->mlx, v->win, 37, 256, v->m, "or LMB and RMB");
+	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 123), UI_CLR, "Fract Explorer");
+	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 95), UI_CLR, "1 = Julia");
+	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 75), UI_CLR, "2 = Mandelbrot");
+	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 55), UI_CLR, "3 = Troisieme");
+	mlx_string_put(v->mlx, v->win, v->len + 11, (WIN_H - 55), UI_CLR, v->nam);
 	free(v->nam);
 }
 
-void	mlx_draw(t_var *v, int x, int y)
+void	mlx_draw(t_var *v, int x, int y, int clr)
 {
 	int tmp1;
 	int tmp2;
 
 	tmp1 = v->x;
 	tmp2 = v->y;
-    v->color = UI_COLOR;
+	if (x == (WIN_W - 25))
+	{
+		--v->y;
+    	v->color = ft_gradient_color(BG_CLR, v->color1, 0.30);
+		while (++v->y <= y && (v->x = tmp1) == tmp1)
+			while (v->x <= x && put_pixel(v, 0) == 0)
+				v->x++;
+	}
+	v->x = tmp1;
+	v->y = tmp2;
+	v->color = clr;
 	while (v->x <= x && put_pixel(v, 0) == 0)
 		v->x++;
 	while (v->y <= y && put_pixel(v, 0) == 0)

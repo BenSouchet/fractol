@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:35:58 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/19 11:54:28 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/25 16:34:29 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int		expose_hook(t_var *v)
 
 int		key_hook(int keycode, t_var *v)
 {
-    int redraw;
+    int r;
 
-    redraw = 0;
+    r = 0;
 	if (keycode == 53)
 	{
 		mlx_destroy_image(v->mlx, v->img);
@@ -36,17 +36,22 @@ int		key_hook(int keycode, t_var *v)
 	}
 	else
 	{
-		if (keycode == 83 && v->num != 1 && ++redraw > 0)
+		if (keycode == 83 && v->num != 1 && ++r > 0)
 			v->num = 1;
-		else if (keycode == 84 && v->num != 2 && ++redraw > 0)
+		else if (keycode == 84 && v->num != 2 && ++r > 0)
 			v->num = 2;
-		else if (keycode == 85 && v->num != 3 && ++redraw > 0)
+		else if (keycode == 85 && v->num != 3 && ++r > 0)
 			v->num = 3;
-		/*if (keycode >= 0 && keycode < 80)
-			v = key_hook_rotate(v, keycode);
-		else if (keycode > 110 && keycode < 130)
-			v = key_hook_translate(v, keycode);*/
-        if (redraw > 0)
+		else if ((keycode == 1 || keycode == 46) && v->m == UI_CLR && ++r > 0)
+			v->m = UI_DCLR;
+		else if ((keycode == 1 || keycode == 46) && v->m != UI_CLR && ++r > 0)
+			v->m = UI_CLR;
+		else if (keycode == 123 && ++r > 0)
+		{
+			MIN_X += 0.04;
+			MAX_X += 0.04;
+		}
+        if (r > 0)
         {
 		    mlx_destroy_image(v->mlx, v->img);
 		    mlx_clear_window(v->mlx, v->win);
