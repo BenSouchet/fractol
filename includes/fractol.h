@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:26:10 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/25 17:28:50 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/26 14:56:11 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ typedef struct	s_var
 {
 	double			i;
 	double			imax;
+	double			zoom;
+	double			padx;
+	double			pady;
     long double      mod;
 	int			x;
 	int			y;

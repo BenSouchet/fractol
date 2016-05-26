@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:09:02 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/20 16:12:34 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/26 17:44:03 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	fractal_mandelbrot(t_var *v)
 	v->i = -1.0;
 	v->zr = 0.0;
 	v->zi = 0.0;
-	v->cr = (double)v->x / (WIN_H / (MAX_X - MIN_X)) + MIN_X;
-	v->ci = (double)v->y / (WIN_H / (MAX_Y - MIN_Y)) + MIN_Y;
+	v->cr = (double)v->x / v->zoom + v->minx;
+	v->ci = (double)v->y / v->zoom + v->miny;
 	while (++v->i < v->imax && (v->zr * v->zr + v->zi * v->zi) < 4)
 	{
 		v->tmp = v->zr;

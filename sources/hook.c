@@ -6,20 +6,27 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:35:58 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/25 16:34:29 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/26 18:33:46 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
+#include <stdio.h>
 int		expose_hook(t_var *v)
 {
+	double mouloude;
+	mouloude = (((WIN_W / 2) - (v->zoom * 2)) * ((-4.40 * 2) - 2)) / WIN_W;
+	v->minx = (mouloude * 2.0) + 1.0;
+	v->miny = 0;
+	//v->maxx = 0.6;
+	//v->maxy = 1.2;
+	printf("%f --- %f\n", v->minx, v->maxx);
 	v->img = mlx_new_image(v->mlx, WIN_W, WIN_H);
 	v->d = mlx_get_data_addr(v->img, &v->bpp, &v->sl, &v->end);
 	draw_fractal(v);
-    user_interface(v);
+    //user_interface(v);
 	mlx_put_image_to_window(v->mlx, v->win, v->img, 0, 0);
-	user_interface_texts(v);
+	//user_interface_texts(v);
 	return (0);
 }
 
@@ -47,10 +54,9 @@ int		key_hook(int keycode, t_var *v)
 		else if ((keycode == 1 || keycode == 46) && v->m != UI_CLR && ++r > 0)
 			v->m = UI_CLR;
 		else if (keycode == 123 && ++r > 0)
-		{
-			MIN_X += 0.04;
-			MAX_X += 0.04;
-		}
+			v->zoom -= 10;
+		else if (keycode == 124 && ++r > 0)
+			v->zoom += 10;
         if (r > 0)
         {
 		    mlx_destroy_image(v->mlx, v->img);

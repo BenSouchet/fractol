@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:39:52 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/25 17:31:16 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/26 17:39:27 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		put_pixel(t_var *v, int type)
 void	draw_fractal(t_var *v)
 {
 	v->y = -1;
-	while (++v->y < WIN_H && (v->x = 213) == 213)
+	while (++v->y < WIN_H && (v->x = -1) == -1)
 	{
 		while (++v->x < WIN_W)
 		{
@@ -52,7 +52,7 @@ void	draw_fractal(t_var *v)
 
 void    user_interface(t_var *v)
 {
-	v->y = -1;
+/*	v->y = -1;
     v->color = BG_CLR;
 	while (++v->y < WIN_H && (v->x = 0) == 0)
 		while (v->x <= 213 && put_pixel(v, 0) == 0)
@@ -61,7 +61,7 @@ void    user_interface(t_var *v)
 	v->y = -1;
 	while (++v->y < WIN_H && (v->x = 214) == 214)
 		while (v->x <= 222 && put_pixel(v, 0) == 0)
-			v->x++;
+			v->x++;*/
 	v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
 	v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
 	v->x = 25;
