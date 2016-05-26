@@ -53,7 +53,7 @@ static int		check(t_var *v, char **av)
 static void     assign(t_var *v)
 {
 	v->zoom = 100.00;
-	//v->padx = 2.60;
+	v->padx = 0.00;
 	//v->pady = 0.00;
     v->mod = 2.0;
     v->imax = 50.0;

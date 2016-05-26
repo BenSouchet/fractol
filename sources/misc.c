@@ -23,8 +23,8 @@ void	fractal_mandelbrot(t_var *v)
 	v->i = -1.0;
 	v->zr = 0.0;
 	v->zi = 0.0;
-	v->cr = (double)v->x / v->zoom + v->minx;
-	v->ci = (double)v->y / v->zoom + v->miny;
+	v->cr = ((double)v->x / v->zoom) + v->minx;
+	v->ci = ((double)v->y / v->zoom) + v->miny;
 	while (++v->i < v->imax && (v->zr * v->zr + v->zi * v->zi) < 4)
 	{
 		v->tmp = v->zr;
