@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:30:09 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/26 18:12:24 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/27 11:36:06 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,14 @@ static int		check(t_var *v, char **av)
 
 static void     assign(t_var *v)
 {
-	v->zoom = 100.00;
-	v->padx = 0.00;
-	//v->pady = 0.00;
-    v->mod = 2.0;
+	v->rot = 0;
+	v->edit = 0;
+	v->mod = 2.0;
+	v->padx = 0.0;
+	v->pady = 0.0;
     v->imax = 50.0;
 	v->m = UI_DCLR;
+	v->zoom = 170.0;
     v->color1 = 0x0F3241;
     v->color2 = 0x9FADB3;
 }

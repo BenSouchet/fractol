@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:26:10 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/26 14:56:11 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/27 11:35:42 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct	s_var
 	double			padx;
 	double			pady;
     long double      mod;
+	int			edit;
 	int			x;
 	int			y;
 	int			sl;
@@ -52,6 +53,7 @@ typedef struct	s_var
 	int			num;
 	int			bpp;
 	int			end;
+	int			rot;
     int         color;
     int         color1;
     int         color2;

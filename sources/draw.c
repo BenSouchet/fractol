@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:39:52 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/26 17:39:27 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/05/27 13:55:25 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,13 @@ void	draw_fractal(t_var *v)
 
 void    user_interface(t_var *v)
 {
-/*	v->y = -1;
-    v->color = BG_CLR;
-	while (++v->y < WIN_H && (v->x = 0) == 0)
-		while (v->x <= 213 && put_pixel(v, 0) == 0)
-			v->x++;
-	v->color = BG_DCLR;
-	v->y = -1;
-	while (++v->y < WIN_H && (v->x = 214) == 214)
-		while (v->x <= 222 && put_pixel(v, 0) == 0)
-			v->x++;*/
 	v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
 	v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
 	v->x = 25;
 	v->y = 25;
-	mlx_draw(v, 188, 173, UI_CLR);
-	v->y = 197;
-	mlx_draw(v, 188, 286, v->m);
+	mlx_draw(v, 188, 213, UI_CLR);
+	v->y = 237;
+	mlx_draw(v, 188, 326, v->m);
 	v->y = WIN_H - 133;
 	mlx_draw(v, 188, (WIN_H - 25), UI_CLR);
 	v->y = (WIN_H - 65);
@@ -79,14 +69,16 @@ void    user_interface(t_var *v)
 void	user_interface_texts(t_var *v)
 {
 	mlx_string_put(v->mlx, v->win, 41, 35, UI_CLR, "Controls Keys");
-	mlx_string_put(v->mlx, v->win, 37, 63, UI_CLR, "Iter = W and Q");
-	mlx_string_put(v->mlx, v->win, 37, 83, UI_CLR, "Zoom = + and -");
-	mlx_string_put(v->mlx, v->win, 37, 103, UI_CLR, "Mouse = M or S");
-	mlx_string_put(v->mlx, v->win, 37, 123, UI_CLR, "Color = SHIFT");
-	mlx_string_put(v->mlx, v->win, 37, 143, UI_CLR, "Reset = CLEAR");
-	mlx_string_put(v->mlx, v->win, 37, 208, v->m, "Controls Mouse");
-	mlx_string_put(v->mlx, v->win, 37, 236, v->m, "Zoom = SCROLL");
-	mlx_string_put(v->mlx, v->win, 37, 256, v->m, "or LMB and RMB");
+	mlx_string_put(v->mlx, v->win, 37, 63, UI_CLR, "Move = ^ v < >");
+	mlx_string_put(v->mlx, v->win, 37, 83, UI_CLR, "Iter = W and Q");
+	mlx_string_put(v->mlx, v->win, 37, 103, UI_CLR, "Zoom = + and -");
+	mlx_string_put(v->mlx, v->win, 37, 123, UI_CLR, "Rot8 = R and T");
+	mlx_string_put(v->mlx, v->win, 37, 143, UI_CLR, "Mouse = M or S");
+	mlx_string_put(v->mlx, v->win, 37, 163, UI_CLR, "Color = SHIFT");
+	mlx_string_put(v->mlx, v->win, 37, 183, UI_CLR, "Reset = CLEAR");
+	mlx_string_put(v->mlx, v->win, 37, 248, v->m, "Controls Mouse");
+	mlx_string_put(v->mlx, v->win, 37, 276, v->m, "Zoom = SCROLL");
+	mlx_string_put(v->mlx, v->win, 37, 296, v->m, "or LMB and RMB");
 	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 123), UI_CLR, "Fract Explorer");
 	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 95), UI_CLR, "1 = Julia");
 	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 75), UI_CLR, "2 = Mandelbrot");
@@ -102,14 +94,11 @@ void	mlx_draw(t_var *v, int x, int y, int clr)
 
 	tmp1 = v->x;
 	tmp2 = v->y;
-	if (x == (WIN_W - 25))
-	{
-		--v->y;
-    	v->color = ft_gradient_color(BG_CLR, v->color1, 0.30);
-		while (++v->y <= y && (v->x = tmp1) == tmp1)
-			while (v->x <= x && put_pixel(v, 0) == 0)
-				v->x++;
-	}
+	--v->y;
+    v->color = ft_darken_color(v->color1, 0.20);
+	while (++v->y <= y && (v->x = tmp1) == tmp1)
+		while (v->x <= x && put_pixel(v, 0) == 0)
+			v->x++;
 	v->x = tmp1;
 	v->y = tmp2;
 	v->color = clr;
