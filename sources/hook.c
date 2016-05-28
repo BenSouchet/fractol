@@ -14,8 +14,8 @@
 #include <stdio.h>
 int		expose_hook(t_var *v)
 {
-	v->minx = (((WIN_W + v->padx) / 2) / (v->zoom / 2)) / -2;
-	v->miny = (((WIN_H + v->pady) / 2) / (v->zoom / 2)) / -2;
+	v->minx = (((WIN_W + v->padx) / 2) / (v->z / 2)) / -2;
+	v->miny = (((WIN_H + v->pady) / 2) / (v->z / 2)) / -2;
 	v->img = mlx_new_image(v->mlx, WIN_W, WIN_H);
 	v->d = mlx_get_data_addr(v->img, &v->bpp, &v->sl, &v->end);
 	draw_fractal(v);
@@ -59,14 +59,10 @@ int		key_hook(int keycode, t_var *v)
             v->pady -= 20.0;
         else if (keycode == 125 && ++r > 0)
             v->pady += 20.0;
-        else if (keycode == 69 && (v->edit == 0 || v->edit == 1) && ++r > 0)
-            v->zoom += 10.0;
-		else if (keycode == 69 && (v->edit == 2 || v->edit == 3) && ++r > 0)
-			v->zoom -= 10.0;
-        else if (keycode == 78 && (v->edit == 0 || v->edit == 1) && v->zoom > 10 && ++r > 0)
-			v->zoom -= 10.0;
-		else if (keycode == 78 && (v->edit == 2 || v->edit == 3) && v->zoom < -10 && ++r > 0)
-			v->zoom += 10.0;
+        else if (keycode == 69  && ++r > 0)
+            v->z += (v->z * 0.30);
+        else if (keycode == 78 && (v->z > 10 || v->z < -10) && ++r > 0)
+			v->z -= (v->z * 0.30);
 		else if (keycode == 12 && ++r > 0)
 			v->imax += 2.0;
 		else if (keycode == 13 && v->imax > 2 && ++r > 0)
@@ -77,13 +73,13 @@ int		key_hook(int keycode, t_var *v)
 			v->rot += 90;
 		else if (keycode == 71 && ++r > 0)
 		{
+            v->e = 0;
 			v->rot = 0;
-			v->edit = 0;
+            v->z = 170.0;
 			v->mod = 2.0;
 			v->padx = 0.0;
 			v->pady = 0.0;
 			v->m = UI_DCLR;
-			v->zoom = 170.0;
 		}
         if (r > 0)
         {

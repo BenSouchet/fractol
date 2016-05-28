@@ -82,7 +82,7 @@ void	user_interface_texts(t_var *v)
 	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 123), UI_CLR, "Fract Explorer");
 	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 95), UI_CLR, "1 = Julia");
 	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 75), UI_CLR, "2 = Mandelbrot");
-	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 55), UI_CLR, "3 = Troisieme");
+	mlx_string_put(v->mlx, v->win, 37, (WIN_H - 55), UI_CLR, "3 = Tricorn");
 	mlx_string_put(v->mlx, v->win, v->len + 11, (WIN_H - 55), UI_CLR, v->nam);
 	free(v->nam);
 }

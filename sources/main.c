@@ -42,8 +42,8 @@ static int		check(t_var *v, char **av)
 	else if (ft_strcmp(av[1], "Mandelbrot") == 0 ||
 		ft_strcmp(av[1], "mandelbrot") == 0)
 		v->num = 2;
-	else if (ft_strcmp(av[1], "Troisieme") == 0 ||
-		ft_strcmp(av[1], "troisieme") == 0)
+	else if (ft_strcmp(av[1], "Tricorn") == 0 ||
+		ft_strcmp(av[1], "tricorn") == 0)
 		v->num = 3;
 	else
         return (1);
@@ -52,14 +52,14 @@ static int		check(t_var *v, char **av)
 
 static void     assign(t_var *v)
 {
+    v->e = 0;
 	v->rot = 0;
-	v->edit = 0;
+    v->z = 170.0;
 	v->mod = 2.0;
 	v->padx = 0.0;
 	v->pady = 0.0;
     v->imax = 50.0;
 	v->m = UI_DCLR;
-	v->zoom = 170.0;
     v->color1 = 0x0F3241;
     v->color2 = 0x9FADB3;
 }

@@ -39,12 +39,12 @@
 typedef struct	s_var
 {
 	double			i;
+	double			z;
 	double			imax;
-	double			zoom;
 	double			padx;
 	double			pady;
     long double      mod;
-	int			edit;
+	int			e;
 	int			x;
 	int			y;
 	int			sl;

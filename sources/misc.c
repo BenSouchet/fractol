@@ -23,20 +23,20 @@ static void		rotate_fractal(t_var *v)
 	else
 		while (rot < -0)
 			rot += 360;
-	if (rot == 0 && (v->edit = 0) == 0)
-		while (v->zoom < 0)
-			v->zoom = v->zoom * -1;
-	else if (rot == 90 && (v->edit = 1) == 1)
-		while (v->zoom < 0)
-			v->zoom = v->zoom * -1;
-	else if (rot == 180 && (v->edit = 2) == 2)
-		while (v->zoom > 0)
-			v->zoom = v->zoom * -1;
-	else if (rot == 270 && (v->edit = 3) == 3)
-		while (v->zoom > 0)
-			v->zoom = v->zoom * -1;
-	v->minx = (((WIN_W + v->padx) / 2) / (v->zoom / 2)) / -2;
-	v->miny = (((WIN_H + v->pady) / 2) / (v->zoom / 2)) / -2;
+	if (rot == 0 && (v->e = 0) == 0)
+		while (v->z < 0)
+			v->z = v->z * -1;
+	else if (rot == 90 && (v->e = 1) == 1)
+		while (v->z < 0)
+			v->z = v->z * -1;
+	else if (rot == 180 && (v->e = 2) == 2)
+		while (v->z > 0)
+			v->z = v->z * -1;
+	else if (rot == 270 && (v->e = 3) == 3)
+		while (v->z > 0)
+			v->z = v->z * -1;
+	v->minx = (((WIN_W + v->padx) / 2) / (v->z / 2)) / -2;
+	v->miny = (((WIN_H + v->pady) / 2) / (v->z / 2)) / -2;
 }
 
 void			fractal_julia(t_var *v)
@@ -45,10 +45,10 @@ void			fractal_julia(t_var *v)
 	v->cr = -1.1380;
 	v->ci = 0.2403;
 	rotate_fractal(v);
-	v->zr = (v->edit == 0 || v->edit == 2) ? ((double)v->x / v->zoom) + v->minx :
-		((double)v->y / v->zoom) + v->miny;
-	v->zi = (v->edit == 0 || v->edit == 2) ? ((double)v->y / v->zoom) + v->miny :
-		((double)v->x / v->zoom) + v->minx;
+	v->zr = (v->e == 0 || v->e == 2) ? ((double)v->x / v->z) + v->minx :
+		((double)v->y / v->z) + v->miny;
+	v->zi = (v->e == 0 || v->e == 2) ? ((double)v->y / v->z) + v->miny :
+		((double)v->x / v->z) + v->minx;
 	while (++v->i < v->imax && (v->zr * v->zr + v->zi * v->zi) < 4)
 	{
 		v->tmp = v->zr;
@@ -65,10 +65,10 @@ void			fractal_mandelbrot(t_var *v)
 	v->zr = 0.0;
 	v->zi = 0.0;
 	rotate_fractal(v);
-	v->cr = (v->edit == 0 || v->edit == 2) ? ((double)v->x / v->zoom) + v->minx : 
-		((double)v->y / v->zoom) + v->miny;
-	v->ci = (v->edit == 0 || v->edit == 2) ? ((double)v->y / v->zoom) + v->miny :
-		((double)v->x / v->zoom) + v->minx;
+	v->cr = (v->e == 0 || v->e == 2) ? ((double)v->x / v->z) + v->minx : 
+		((double)v->y / v->z) + v->miny;
+	v->ci = (v->e == 0 || v->e == 2) ? ((double)v->y / v->z) + v->miny :
+		((double)v->x / v->z) + v->minx;
 	while (++v->i < v->imax && (v->zr * v->zr + v->zi * v->zi) < 4)
 	{
 		v->tmp = v->zr;
