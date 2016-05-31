@@ -59,7 +59,7 @@ static void     assign(t_var *v)
 	v->padx = 0.0;
 	v->pady = 0.0;
     v->imax = 50.0;
-	v->m = UI_DCLR;
+	v->m = ft_darken_color(UI_CLR, 0.45);
     v->color1 = 0x0F3241;
     v->color2 = 0x9FADB3;
 }

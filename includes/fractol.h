@@ -21,7 +21,7 @@
 # define PI 3.14159265359
 # define BG_CLR 0x3B3B3B
 # define BG_DCLR 0x2D2D2D
-# define UI_CLR 0x84AC00
+# define UI_CLR 0xC0C0C0
 # define UI_DCLR 0x647C15
 # define OBJ_CLR 0x777777
 # define PROG_NAME "fract'ol - bsouchet"

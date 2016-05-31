@@ -45,10 +45,10 @@ void			fractal_julia(t_var *v)
 	v->cr = -1.1380;
 	v->ci = 0.2403;
 	rotate_fractal(v);
-	v->zr = (v->e == 0 || v->e == 2) ? ((double)v->x / v->z) + v->minx :
-		((double)v->y / v->z) + v->miny;
-	v->zi = (v->e == 0 || v->e == 2) ? ((double)v->y / v->z) + v->miny :
-		((double)v->x / v->z) + v->minx;
+	v->zr = (v->e == 0 || v->e == 2) ? (D(v->x) / v->z) + v->minx :
+		(D(v->y) / v->z) + v->miny;
+	v->zi = (v->e == 0 || v->e == 2) ? (D(v->y) / v->z) + v->miny :
+		(D(v->x) / v->z) + v->minx;
 	while (++v->i < v->imax && (v->zr * v->zr + v->zi * v->zi) < 4)
 	{
 		v->tmp = v->zr;
@@ -65,10 +65,10 @@ void			fractal_mandelbrot(t_var *v)
 	v->zr = 0.0;
 	v->zi = 0.0;
 	rotate_fractal(v);
-	v->cr = (v->e == 0 || v->e == 2) ? ((double)v->x / v->z) + v->minx : 
-		((double)v->y / v->z) + v->miny;
-	v->ci = (v->e == 0 || v->e == 2) ? ((double)v->y / v->z) + v->miny :
-		((double)v->x / v->z) + v->minx;
+	v->cr = (v->e == 0 || v->e == 2) ? (D(v->x) / v->z) + v->minx : 
+		(D(v->y) / v->z) + v->miny;
+	v->ci = (v->e == 0 || v->e == 2) ? (D(v->y) / v->z) + v->miny :
+		(D(v->x) / v->z) + v->minx;
 	while (++v->i < v->imax && (v->zr * v->zr + v->zi * v->zi) < 4)
 	{
 		v->tmp = v->zr;
@@ -76,5 +76,11 @@ void			fractal_mandelbrot(t_var *v)
 		v->zi = v->mod * v->zi * v->tmp + v->ci;
 	}
 	v->color = ft_gradient_color(v->color1, v->color2, (v->i / v->imax));
+    if (((v->x >= 25 && v->x <= 188) &&
+        ((v->y >= 25 && v->y <= 213) || (v->y >= 237 && v->y <= 326) ||
+        (v->y >= (WIN_H - 133) && v->y <= (WIN_H - 25)))) ||
+        (v->x >= (v->len - 1) && v->x <= (WIN_W - 25) &&
+        v->y >= (WIN_H - 65) && v->y <= (WIN_H - 25)))
+        v->color = ft_darken_color(v->color, 0.35);
 	put_pixel(v, 0);
 }

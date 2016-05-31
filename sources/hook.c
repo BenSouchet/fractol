@@ -79,7 +79,7 @@ int		key_hook(int keycode, t_var *v)
 			v->mod = 2.0;
 			v->padx = 0.0;
 			v->pady = 0.0;
-			v->m = UI_DCLR;
+			v->m = ft_darken_color(UI_CLR, 0.45);
 		}
         if (r > 0)
         {

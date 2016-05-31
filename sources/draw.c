@@ -36,6 +36,8 @@ int		put_pixel(t_var *v, int type)
 void	draw_fractal(t_var *v)
 {
 	v->y = -1;
+    v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
+    v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
 	while (++v->y < WIN_H && (v->x = -1) == -1)
 	{
 		while (++v->x < WIN_W)
@@ -52,8 +54,6 @@ void	draw_fractal(t_var *v)
 
 void    user_interface(t_var *v)
 {
-	v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
-	v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
 	v->x = 25;
 	v->y = 25;
 	mlx_draw(v, 188, 213, UI_CLR);
@@ -94,20 +94,13 @@ void	mlx_draw(t_var *v, int x, int y, int clr)
 
 	tmp1 = v->x;
 	tmp2 = v->y;
-	--v->y;
-    v->color = ft_darken_color(v->color1, 0.20);
-	while (++v->y <= y && (v->x = tmp1) == tmp1)
-		while (v->x <= x && put_pixel(v, 0) == 0)
-			v->x++;
-	v->x = tmp1;
-	v->y = tmp2;
-	v->color = clr;
+	v->color = ft_darken_color(clr, 0.20);
 	while (v->x <= x && put_pixel(v, 0) == 0)
 		v->x++;
 	while (v->y <= y && put_pixel(v, 0) == 0)
 		v->y++;
-	while (v->x >= tmp1 && put_pixel(v, 0) == 0)
+	while (v->x > tmp1 && put_pixel(v, 0) == 0)
 		v->x--;
-	while (v->y >= tmp2 && put_pixel(v, 0) == 0)
+	while (v->y > tmp2 && put_pixel(v, 0) == 0)
 		v->y--;
 }
