@@ -44,6 +44,8 @@ typedef struct	s_var
 	double			padx;
 	double			pady;
     long double      mod;
+    int         posx;
+    int         posy;
 	int			e;
 	int			x;
 	int			y;

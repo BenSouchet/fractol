@@ -54,6 +54,8 @@ static void     assign(t_var *v)
 {
     v->e = 0;
 	v->rot = 0;
+    v->posx = 1280;
+    v->posy = 720;
     v->z = 170.0;
 	v->mod = 2.0;
 	v->padx = 0.0;

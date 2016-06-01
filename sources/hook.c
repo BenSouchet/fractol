@@ -11,11 +11,9 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
+
 int		expose_hook(t_var *v)
 {
-	v->minx = (((WIN_W + v->padx) / 2) / (v->z / 2)) / -2;
-	v->miny = (((WIN_H + v->pady) / 2) / (v->z / 2)) / -2;
 	v->img = mlx_new_image(v->mlx, WIN_W, WIN_H);
 	v->d = mlx_get_data_addr(v->img, &v->bpp, &v->sl, &v->end);
 	draw_fractal(v);
@@ -52,13 +50,13 @@ int		key_hook(int keycode, t_var *v)
 		else if ((keycode == 1 || keycode == 46) && v->m != UI_CLR && ++r > 0)
 			v->m = UI_CLR;
 		else if (keycode == 123 && ++r > 0)
-			v->padx -= 20.0;
+			v->padx -= 70.0;
 		else if (keycode == 124 && ++r > 0)
-			v->padx += 20.0;
+			v->padx += 70.0;
         else if (keycode == 126 && ++r > 0)
-            v->pady -= 20.0;
+            v->pady -= 70.0;
         else if (keycode == 125 && ++r > 0)
-            v->pady += 20.0;
+            v->pady += 70.0;
         else if (keycode == 69  && ++r > 0)
             v->z += (v->z * 0.30);
         else if (keycode == 78 && (v->z > 10 || v->z < -10) && ++r > 0)
