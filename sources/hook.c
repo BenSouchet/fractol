@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
-
+#include <stdio.h>
 int		expose_hook(t_var *v)
 {
 	v->img = mlx_new_image(v->mlx, WIN_W, WIN_H);
@@ -46,7 +46,7 @@ int		key_hook(int keycode, t_var *v)
 			v->num = 3;
 		}
 		else if ((keycode == 1 || keycode == 46) && v->m == UI_CLR && ++r > 0)
-			v->m = UI_DCLR;
+			v->m = ft_darken_color(UI_CLR, 0.45);
 		else if ((keycode == 1 || keycode == 46) && v->m != UI_CLR && ++r > 0)
 			v->m = UI_CLR;
 		else if (keycode == 123 && ++r > 0)
@@ -87,6 +87,23 @@ int		key_hook(int keycode, t_var *v)
         }
 	}
 	return (0);
+}
+
+int     mouse_hook(int button, int x, int y, t_var *v)
+{
+    if (v->m == UI_CLR && x >= 0 && x < WIN_W && y >= 0 && y < WIN_H)
+    {
+        v->posx = (button < 3) ? x : v->posx;
+        v->posy = (button < 3) ? y : v->posy;
+        if (button == 1 || button == 5)
+            v->z += (v->z * 0.30);
+        if ((button == 2 || button == 4) && (v->z > 10 || v->z < -10))
+            v->z -= (v->z * 0.30);
+        mlx_destroy_image(v->mlx, v->img);
+        mlx_clear_window(v->mlx, v->win);
+        expose_hook(v);
+    }
+    return (0);
 }
 
 int		close_hook(int button, t_var *v)

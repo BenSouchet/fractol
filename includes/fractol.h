@@ -46,6 +46,8 @@ typedef struct	s_var
     long double      mod;
     int         posx;
     int         posy;
+    int         midx;
+    int         midy;
 	int			e;
 	int			x;
 	int			y;
@@ -80,6 +82,7 @@ typedef struct	s_var
 int				expose_hook(t_var *v);
 int				key_hook(int keycode, t_var *v);
 int				close_hook(int button, t_var *v);
+int             mouse_hook(int button, int x, int y, t_var *v);
 
 int				put_pixel(t_var *v, int type);
 void			draw_fractal(t_var *v);
@@ -91,5 +94,6 @@ void			mlx_draw(t_var *v, int x, int y, int clr);
 void			fractal_julia(t_var *v);
 void			fractal_mandelbrot(t_var *v);
 void			fractal_troisieme(t_var *v);
+void            rotate_fractal(t_var *v, int rot);
 
 #endif

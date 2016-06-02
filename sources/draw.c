@@ -38,6 +38,7 @@ void	draw_fractal(t_var *v)
 	v->y = -1;
     v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
     v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
+    rotate_fractal(v, v->rot);
 	while (++v->y < WIN_H && (v->x = -1) == -1)
 	{
 		while (++v->x < WIN_W)

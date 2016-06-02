@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-static void		rotate_fractal(t_var *v, int rot)
+#include <stdio.h>
+void		rotate_fractal(t_var *v, int rot)
 {
 	if (rot >= 0)
 		while (rot >= 360)
@@ -32,10 +32,13 @@ static void		rotate_fractal(t_var *v, int rot)
 	else if (rot == 270 && (v->e = 3) == 3)
 		while (v->z > 0)
 			v->z = v->z * -1;
-    v->minx = (v->posx != -1) ? ((v->posx + v->padx) / (v->z / 2)) / -2 :
-    (((WIN_W + v->padx) / 2) / (v->z / 2)) / -2;
-    v->miny = (v->posy != -1) ? ((v->posy + v->pady) / (v->z / 2)) / -2 :
-    (((WIN_H + v->pady) / 2) / (v->z / 2)) / -2;
+    if (v->m == UI_CLR && v->posx != -1 && v->posy != -1)
+    {
+        v->midx += ((WIN_W / 2) - v->posx);
+        v->midy += ((WIN_H / 2) - v->posy);
+    }
+    v->minx = ((v->midx + v->padx) / (v->z / 2)) / -2;
+    v->miny = ((v->midy + v->pady) / (v->z / 2)) / -2;
 }
 
 void			fractal_julia(t_var *v)
@@ -43,7 +46,6 @@ void			fractal_julia(t_var *v)
 	v->i = -1.0;
 	v->cr = -1.1380;
 	v->ci = 0.2403;
-	rotate_fractal(v, v->rot);
 	v->zr = (v->e == 0 || v->e == 2) ? (D(v->x) / v->z) + v->minx :
 		(D(v->y) / v->z) + v->miny;
 	v->zi = (v->e == 0 || v->e == 2) ? (D(v->y) / v->z) + v->miny :
@@ -63,7 +65,6 @@ void			fractal_mandelbrot(t_var *v)
 	v->i = -1.0;
 	v->zr = 0.0;
 	v->zi = 0.0;
-	rotate_fractal(v, v->rot);
 	v->cr = (v->e == 0 || v->e == 2) ? (D(v->x) / v->z) + v->minx : 
 		(D(v->y) / v->z) + v->miny;
 	v->ci = (v->e == 0 || v->e == 2) ? (D(v->y) / v->z) + v->miny :
