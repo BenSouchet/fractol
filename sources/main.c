@@ -54,15 +54,11 @@ static void     assign(t_var *v)
 {
     v->e = 0;
 	v->rot = 0;
-    v->posx = -1;
-    v->posy = -1;
     v->z = 170.0;
 	v->mod = 2.0;
 	v->padx = 0.0;
 	v->pady = 0.0;
     v->imax = 50.0;
-    v->midx = WIN_W / 2;
-    v->midy = WIN_H / 2;
 	v->m = ft_darken_color(UI_CLR, 0.45);
     v->color1 = 0x0F3241;
     v->color2 = 0x9FADB3;

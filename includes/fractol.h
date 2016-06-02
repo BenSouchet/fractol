@@ -31,6 +31,8 @@
 # define MAX_Y v->maxy
 # define WIN_W 1280
 # define WIN_H 720
+# define MID_W 640
+# define MID_H 360
 
 # define MSG0 "usage: ./fractol fractal_name"
 # define MSG1 "error: Window size must be greater than 1024 x 576."
@@ -44,10 +46,6 @@ typedef struct	s_var
 	double			padx;
 	double			pady;
     long double      mod;
-    int         posx;
-    int         posy;
-    int         midx;
-    int         midy;
 	int			e;
 	int			x;
 	int			y;
@@ -75,8 +73,6 @@ typedef struct	s_var
 	long double tmp;
 	float		minx;
 	float		miny;
-	float		maxx;
-	float		maxy;
 }				t_var;
 
 int				expose_hook(t_var *v);

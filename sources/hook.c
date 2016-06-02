@@ -93,8 +93,18 @@ int     mouse_hook(int button, int x, int y, t_var *v)
 {
     if (v->m == UI_CLR && x >= 0 && x < WIN_W && y >= 0 && y < WIN_H)
     {
-        v->posx = (button < 3) ? x : v->posx;
-        v->posy = (button < 3) ? y : v->posy;
+        if (button == 1)
+        {
+            v->padx = round((D(MID_W + v->padx) - D(x)) * 1.30);
+            v->pady = round((D(MID_H + v->pady) - D(y)) * 1.30);
+        }
+        else if (button == 2)
+        {
+            printf("padx : %f --- x : %i\n", v->padx, x);
+            v->padx = round((D(MID_W + v->padx) - D(x)) * 0.30);
+            v->pady = round((D(MID_H + v->pady) - D(y)) * 0.30);
+            printf("After padx : %f\n", v->padx);
+        }
         if (button == 1 || button == 5)
             v->z += (v->z * 0.30);
         if ((button == 2 || button == 4) && (v->z > 10 || v->z < -10))

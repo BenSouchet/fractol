@@ -32,13 +32,8 @@ void		rotate_fractal(t_var *v, int rot)
 	else if (rot == 270 && (v->e = 3) == 3)
 		while (v->z > 0)
 			v->z = v->z * -1;
-    if (v->m == UI_CLR && v->posx != -1 && v->posy != -1)
-    {
-        v->midx += ((WIN_W / 2) - v->posx);
-        v->midy += ((WIN_H / 2) - v->posy);
-    }
-    v->minx = ((v->midx + v->padx) / (v->z / 2)) / -2;
-    v->miny = ((v->midy + v->pady) / (v->z / 2)) / -2;
+    v->minx = ((MID_W + v->padx) / (v->z / 2)) / -2;
+    v->miny = ((MID_H + v->pady) / (v->z / 2)) / -2;
 }
 
 void			fractal_julia(t_var *v)
