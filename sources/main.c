@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:30:09 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/02 15:08:27 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/02 16:57:45 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ static void		assign(t_var *v)
 	v->padx = 0.0;
 	v->pady = 0.0;
 	v->imax = 50.0;
+	v->jr = -1.1380;
+	v->ji = 0.2403;
 	v->m = ft_darken_color(UI_CLR, 0.45);
 	v->color1 = 0x0F3241;
 	v->color2 = 0x9FADB3;
@@ -73,6 +75,7 @@ static void		init_win(t_var *v)
 	v->win = mlx_new_window(v->mlx, -1, -1, WIN_W, WIN_H, PROG_NAME);
 	v->d = mlx_get_data_addr(v->img, &v->bpp, &v->sl, &v->end);
 	mlx_expose_hook(v->win, expose_hook, v);
+	mlx_hook(v->win, 6, 64, motion_hook, v);
 	mlx_hook(v->win, 17, 0, close_hook, v);
 	mlx_hook(v->win, 2, 0, key_hook, v);
 	mlx_mouse_hook(v->win, mouse_hook, v);

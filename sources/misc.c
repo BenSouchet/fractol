@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:09:02 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/02 15:08:04 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/02 16:37:30 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void			rotate_fractal(t_var *v, int rot)
 void			fractal_julia(t_var *v)
 {
 	v->i = -1.0;
-	v->cr = -1.1380;
-	v->ci = 0.2403;
 	v->mod = 2;
 	v->zr = (v->e == 0 || v->e == 2) ? (D(v->x) / v->z) + v->minx :
 	(D(v->y) / v->z) + v->miny;
@@ -49,8 +47,8 @@ void			fractal_julia(t_var *v)
 	while (++v->i < v->imax && (v->zr * v->zr + v->zi * v->zi) < 4)
 	{
 		v->tmp = v->zr;
-		v->zr = (v->zr * v->zr) - (v->zi * v->zi) + v->cr;
-		v->zi = v->mod * v->zi * v->tmp + v->ci;
+		v->zr = (v->zr * v->zr) - (v->zi * v->zi) + v->jr;
+		v->zi = v->mod * v->zi * v->tmp + v->ji;
 	}
 	v->color = ft_gradient_color(v->color1, v->color2, (v->i / v->imax));
 	if (((v->x >= 25 && v->x <= 188) &&
@@ -68,15 +66,15 @@ void			fractal_mandelbrot(t_var *v)
 	v->zr = 0.0;
 	v->zi = 0.0;
 	v->mod = (v->num == 2) ? 2 : -2;
-	v->cr = (v->e == 0 || v->e == 2) ? (D(v->x) / v->z) + v->minx :
+	v->mr = (v->e == 0 || v->e == 2) ? (D(v->x) / v->z) + v->minx :
 	(D(v->y) / v->z) + v->miny;
-	v->ci = (v->e == 0 || v->e == 2) ? (D(v->y) / v->z) + v->miny :
+	v->mi = (v->e == 0 || v->e == 2) ? (D(v->y) / v->z) + v->miny :
 	(D(v->x) / v->z) + v->minx;
 	while (++v->i < v->imax && (v->zr * v->zr + v->zi * v->zi) < 4)
 	{
 		v->tmp = v->zr;
-		v->zr = (v->zr * v->zr) - (v->zi * v->zi) + v->cr;
-		v->zi = v->mod * v->zi * v->tmp + v->ci;
+		v->zr = (v->zr * v->zr) - (v->zi * v->zi) + v->mr;
+		v->zi = v->mod * v->zi * v->tmp + v->mi;
 	}
 	v->color = ft_gradient_color(v->color1, v->color2, (v->i / v->imax));
 	if (((v->x >= 25 && v->x <= 188) &&

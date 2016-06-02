@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:26:10 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/02 14:24:35 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/02 16:59:43 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ typedef struct	s_var
 	void		*img;
 	void		*mlx;
 	void		*win;
-	long double	cr;
-	long double	ci;
+	long double	jr;
+	long double	ji;
+	long double	mr;
+	long double mi;
 	long double	zr;
 	long double	zi;
 	long double tmp;
@@ -79,6 +81,7 @@ int				expose_hook(t_var *v);
 int				key_hook(int keycode, t_var *v);
 int				close_hook(int button, t_var *v);
 int				mouse_hook(int button, int x, int y, t_var *v);
+int				motion_hook(int x, int y, t_var *v);
 
 int				put_pixel(t_var *v, int type);
 void			draw_fractal(t_var *v);

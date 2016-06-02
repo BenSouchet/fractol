@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:35:58 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/02 15:06:47 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/02 17:04:07 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ int		key_hook(int keycode, t_var *v)
 			v->num = 2;
 		else if (keycode == 85 && v->num != 3 && ++r > 0)
 			v->num = 3;
-		else if ((keycode == 1 || keycode == 46) && v->m == UI_CLR && ++r > 0)
-			v->m = ft_darken_color(UI_CLR, 0.45);
-		else if ((keycode == 1 || keycode == 46) && v->m != UI_CLR && ++r > 0)
-			v->m = UI_CLR;
+		else if ((keycode == 1 || keycode == 46) && ++r > 0)
+			v->m = (v->m == UI_CLR) ? ft_darken_color(UI_CLR, 0.45) : UI_CLR;
 		else if (keycode == 123 && ++r > 0)
 			v->padx -= 70.0;
 		else if (keycode == 124 && ++r > 0)
@@ -71,9 +69,11 @@ int		key_hook(int keycode, t_var *v)
 			v->e = 0;
 			v->rot = 0;
 			v->z = 170.0;
-			v->mod = 2.0;
 			v->padx = 0.0;
 			v->pady = 0.0;
+			v->imax = 50.0;
+			v->jr = -1.1380;
+			v->ji = 0.2403;
 			v->m = ft_darken_color(UI_CLR, 0.45);
 		}
 		if (r > 0)
@@ -82,6 +82,18 @@ int		key_hook(int keycode, t_var *v)
 			mlx_clear_window(v->mlx, v->win);
 			expose_hook(v);
 		}
+	}
+	return (0);
+}
+
+int		motion_hook(int x, int y, t_var *v)
+{
+	if (x >= 0 && x < WIN_W && y >= 0 && y < WIN_H &&
+		v->num == 1 && v->m == UI_CLR)
+	{
+		mlx_destroy_image(v->mlx, v->img);
+		mlx_clear_window(v->mlx, v->win);
+		expose_hook(v);
 	}
 	return (0);
 }
