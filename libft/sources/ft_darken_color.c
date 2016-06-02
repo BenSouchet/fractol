@@ -6,13 +6,13 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 15:42:55 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/20 15:43:29 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/02 14:30:48 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_darken_color(int clr, double val)
+int		ft_darken_color(int clr, double val)
 {
 	int r;
 	int g;

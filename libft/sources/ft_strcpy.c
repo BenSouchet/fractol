@@ -6,32 +6,32 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/02 19:11:33 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/02/02 19:11:38 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/02 14:29:51 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strcpy(char *s1, const char *s2)
+char	*ft_strcpy(char *s1, const char *s2)
 {
-    size_t  n;
+	size_t n;
 
-    n = 0;
-    while (s2[n])
-    {
-        s1[n] = s2[n];
-        n++;
-    }
-    s1[n] = '\0';
-    return (s1);
+	n = 0;
+	while (s2[n])
+	{
+		s1[n] = s2[n];
+		n++;
+	}
+	s1[n] = '\0';
+	return (s1);
 }
 
-void     ft_cpy(char *s1, char *s2)
+void	ft_cpy(char *s1, char *s2)
 {
-    int i;
+	int i;
 
-    i = -1;
-    while (s1[++i] != 0)
-        s2[i] = s1[i];
-    s2[i] = 0;
+	i = -1;
+	while (s1[++i] != 0)
+		s2[i] = s1[i];
+	s2[i] = 0;
 }

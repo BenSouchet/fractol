@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:39:52 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/27 13:55:25 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/02 14:42:17 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int		put_pixel(t_var *v, int type)
 void	draw_fractal(t_var *v)
 {
 	v->y = -1;
-    v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
-    v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
-    rotate_fractal(v, v->rot);
+	v->nam = ft_strjoin("Fractal : ", ft_firstupper(v->ftl[v->num - 1]));
+	v->len = WIN_W - 50 - ft_strlen(v->nam) * 10;
+	rotate_fractal(v, v->rot);
 	while (++v->y < WIN_H && (v->x = -1) == -1)
 	{
 		while (++v->x < WIN_W)
@@ -53,7 +53,7 @@ void	draw_fractal(t_var *v)
 	}
 }
 
-void    user_interface(t_var *v)
+void	user_interface(t_var *v)
 {
 	v->x = 25;
 	v->y = 25;
@@ -72,7 +72,7 @@ void	user_interface_texts(t_var *v)
 	mlx_string_put(v->mlx, v->win, 41, 35, UI_CLR, "Controls Keys");
 	mlx_string_put(v->mlx, v->win, 37, 63, UI_CLR, "Move = ^ v < >");
 	mlx_string_put(v->mlx, v->win, 37, 83, UI_CLR, "Iter = W and Q");
-	mlx_string_put(v->mlx, v->win, 37, 103, UI_CLR, "Zoom = + and -");
+	mlx_string_put(v->mlx, v->win, 37, 103, UI_CLR, "Zoom = - and +");
 	mlx_string_put(v->mlx, v->win, 37, 123, UI_CLR, "Rot8 = R and T");
 	mlx_string_put(v->mlx, v->win, 37, 143, UI_CLR, "Mouse = M or S");
 	mlx_string_put(v->mlx, v->win, 37, 163, UI_CLR, "Color = SHIFT");

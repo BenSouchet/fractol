@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:26:10 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/27 11:35:42 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/02 14:24:35 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,17 @@
 # define MID_W 640
 # define MID_H 360
 
-# define MSG0 "usage: ./fractol fractal_name"
+# define MSG0 "usage: ./fractol (Julia / Mandelbrot / Tricorn)"
 # define MSG1 "error: Window size must be greater than 1024 x 576."
-# define MSG3 " isn't a valid fractal name."
+# define MSG3 "\" isn't a valid fractal name."
 
 typedef struct	s_var
 {
-	double			i;
-	double			z;
-	double			imax;
-	double			padx;
-	double			pady;
-    long double      mod;
+	double		i;
+	double		z;
+	double		imax;
+	double		padx;
+	double		pady;
 	int			e;
 	int			x;
 	int			y;
@@ -56,9 +55,9 @@ typedef struct	s_var
 	int			bpp;
 	int			end;
 	int			rot;
-    int         color;
-    int         color1;
-    int         color2;
+	int			color;
+	int			color1;
+	int			color2;
 	int			m;
 	char		*d;
 	char		*nam;
@@ -71,6 +70,7 @@ typedef struct	s_var
 	long double	zr;
 	long double	zi;
 	long double tmp;
+	long double	mod;
 	float		minx;
 	float		miny;
 }				t_var;
@@ -78,7 +78,7 @@ typedef struct	s_var
 int				expose_hook(t_var *v);
 int				key_hook(int keycode, t_var *v);
 int				close_hook(int button, t_var *v);
-int             mouse_hook(int button, int x, int y, t_var *v);
+int				mouse_hook(int button, int x, int y, t_var *v);
 
 int				put_pixel(t_var *v, int type);
 void			draw_fractal(t_var *v);
@@ -89,7 +89,6 @@ void			mlx_draw(t_var *v, int x, int y, int clr);
 
 void			fractal_julia(t_var *v);
 void			fractal_mandelbrot(t_var *v);
-void			fractal_troisieme(t_var *v);
-void            rotate_fractal(t_var *v, int rot);
+void			rotate_fractal(t_var *v, int rot);
 
 #endif

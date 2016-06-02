@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:30:09 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/05/27 11:36:06 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/02 15:08:27 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 
 static int		error(int type, char **av)
 {
-    char *str;
+	char *str;
 
 	if (type == 0)
-		write(2, MSG0, 29);
+		write(2, MSG0, ft_strlen(MSG0));
 	else if (type == 1)
-		write(2, MSG1, 52);
+		write(2, MSG1, ft_strlen(MSG1));
 	else if (type == 2)
 	{
-        str = ft_strjoin2(ft_strjoin("error : ", av[1]), MSG3, 0);
-        write(2, str, ft_strlen(str));
-        free(str);
-    }
+		str = ft_strjoin2(ft_strjoin("error : \"", av[1]), MSG3, 0);
+		write(2, str, ft_strlen(str));
+		write(2, "\n", 2);
+		write(2, MSG0, ft_strlen(MSG0));
+		free(str);
+	}
 	write(2, "\n", 1);
 	return (-1);
 }
@@ -35,38 +37,37 @@ static int		check(t_var *v, char **av)
 {
 	ft_cpy("Julia\0", v->ftl[0]);
 	ft_cpy("Mandelbrot\0", v->ftl[1]);
-	ft_cpy("Troisieme\0", v->ftl[2]);
+	ft_cpy("Tricorn\0", v->ftl[2]);
 	if (ft_strcmp(av[1], "Julia") == 0 ||
 		ft_strcmp(av[1], "julia") == 0)
 		v->num = 1;
 	else if (ft_strcmp(av[1], "Mandelbrot") == 0 ||
-		ft_strcmp(av[1], "mandelbrot") == 0)
+			ft_strcmp(av[1], "mandelbrot") == 0)
 		v->num = 2;
 	else if (ft_strcmp(av[1], "Tricorn") == 0 ||
-		ft_strcmp(av[1], "tricorn") == 0)
+			ft_strcmp(av[1], "tricorn") == 0)
 		v->num = 3;
 	else
-        return (1);
+		return (1);
 	return (0);
 }
 
-static void     assign(t_var *v)
+static void		assign(t_var *v)
 {
-    v->e = 0;
+	v->e = 0;
 	v->rot = 0;
-    v->z = 170.0;
-	v->mod = 2.0;
+	v->z = 170.0;
 	v->padx = 0.0;
 	v->pady = 0.0;
-    v->imax = 50.0;
+	v->imax = 50.0;
 	v->m = ft_darken_color(UI_CLR, 0.45);
-    v->color1 = 0x0F3241;
-    v->color2 = 0x9FADB3;
+	v->color1 = 0x0F3241;
+	v->color2 = 0x9FADB3;
 }
 
 static void		init_win(t_var *v)
 {
-    assign(v);
+	assign(v);
 	v->mlx = mlx_init();
 	v->img = mlx_new_image(v->mlx, WIN_W, WIN_H);
 	v->win = mlx_new_window(v->mlx, -1, -1, WIN_W, WIN_H, PROG_NAME);
@@ -74,7 +75,7 @@ static void		init_win(t_var *v)
 	mlx_expose_hook(v->win, expose_hook, v);
 	mlx_hook(v->win, 17, 0, close_hook, v);
 	mlx_hook(v->win, 2, 0, key_hook, v);
-    mlx_mouse_hook(v->win, mouse_hook, v);
+	mlx_mouse_hook(v->win, mouse_hook, v);
 	mlx_do_key_autorepeaton(v->mlx);
 	mlx_loop(v->mlx);
 	exit(0);
