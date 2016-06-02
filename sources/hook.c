@@ -91,6 +91,8 @@ int		motion_hook(int x, int y, t_var *v)
 	if (x >= 0 && x < WIN_W && y >= 0 && y < WIN_H &&
 		v->num == 1 && v->m == UI_CLR)
 	{
+        v->jr = -0.30;
+        v->ji = -0.30;
 		mlx_destroy_image(v->mlx, v->img);
 		mlx_clear_window(v->mlx, v->win);
 		expose_hook(v);
