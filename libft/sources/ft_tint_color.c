@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lighten_color.c                                 :+:      :+:    :+:   */
+/*   ft_tint_color.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 15:40:18 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/02 14:31:05 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/03 12:57:49 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lighten_color(int clr, double val)
+int		ft_tint_color(int clr, double val)
 {
 	int r;
 	int g;

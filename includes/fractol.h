@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:26:10 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/02 16:59:43 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/03 12:50:42 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 # define WIN_H 720
 # define MID_W 640
 # define MID_H 360
+# define MIN_J -3.20
+# define MAX_J 3.200
+# define CLR_1 0x0F3241
 
 # define MSG0 "usage: ./fractol (Julia / Mandelbrot / Tricorn)"
 # define MSG1 "error: Window size must be greater than 1024 x 576."

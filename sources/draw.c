@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:39:52 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/02 14:42:17 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/03 12:58:59 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	mlx_draw(t_var *v, int x, int y, int clr)
 
 	tmp1 = v->x;
 	tmp2 = v->y;
-	v->color = ft_darken_color(clr, 0.20);
+	v->color = ft_shade_color(clr, 0.20);
 	while (v->x <= x && put_pixel(v, 0) == 0)
 		v->x++;
 	while (v->y <= y && put_pixel(v, 0) == 0)

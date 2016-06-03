@@ -6,7 +6,7 @@
 /*   By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 13:30:40 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/02 14:26:09 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/03 12:56:08 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # define BUFF_SIZE 1
 # define D (double)
+# define MIN_V 105
 
 int				ft_abs(int n);
 
@@ -50,8 +51,9 @@ char			*ft_firstupper(char *str);
 
 int				ft_rand(int min, int max);
 
-int				ft_darken_color(int clr, double val);
-int				ft_lighten_color(int clr, double val);
+int				ft_random_color(void);
+int				ft_tint_color(int clr, double val);
+int				ft_shade_color(int clr, double val);
 int				ft_gradient_color(int clr1, int clr2, double val);
 
 #endif

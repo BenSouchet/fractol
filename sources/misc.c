@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:09:02 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/02 16:37:30 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/03 13:00:42 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void			fractal_julia(t_var *v)
 	(v->y >= (WIN_H - 133) && v->y <= (WIN_H - 25)))) ||
 	(v->x >= (v->len - 1) && v->x <= (WIN_W - 25) &&
 	v->y >= (WIN_H - 65) && v->y <= (WIN_H - 25)))
-		v->color = ft_darken_color(v->color, 0.35);
+		v->color = ft_shade_color(v->color, 0.35);
 	put_pixel(v, 0);
 }
 
@@ -82,6 +82,6 @@ void			fractal_mandelbrot(t_var *v)
 	(v->y >= (WIN_H - 133) && v->y <= (WIN_H - 25)))) ||
 	(v->x >= (v->len - 1) && v->x <= (WIN_W - 25) &&
 	v->y >= (WIN_H - 65) && v->y <= (WIN_H - 25)))
-		v->color = ft_darken_color(v->color, 0.35);
+		v->color = ft_shade_color(v->color, 0.35);
 	put_pixel(v, 0);
 }
