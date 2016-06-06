@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   misc.c                                             :+:      :+:    :+:   */
+/*   frtl.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:09:02 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/03 13:00:42 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/06 18:45:47 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h>
 
 void			rotate_fractal(t_var *v, int rot)
 {
@@ -36,6 +37,16 @@ void			rotate_fractal(t_var *v, int rot)
 	v->miny = ((MID_H + v->pady) / (v->z / 2)) / -2;
 }
 
+int				edit_hue_hex(t_var *v)
+{
+	t_hsv	hsv;
+
+	hsv = ft_hex_to_hsv(v->clr_frtl);
+	hsv.h += (((360.0 / v->imax) * v->i));
+	hsv.v += (((1.0 - hsv.v) / v->imax) * v->i);
+	return (ft_hsv_to_hex(hsv));
+}
+
 void			fractal_julia(t_var *v)
 {
 	v->i = -1.0;
@@ -50,13 +61,13 @@ void			fractal_julia(t_var *v)
 		v->zr = (v->zr * v->zr) - (v->zi * v->zi) + v->jr;
 		v->zi = v->mod * v->zi * v->tmp + v->ji;
 	}
-	v->color = ft_gradient_color(v->color1, v->color2, (v->i / v->imax));
+	v->clr = edit_hue_hex(v);
 	if (((v->x >= 25 && v->x <= 188) &&
 	((v->y >= 25 && v->y <= 213) || (v->y >= 237 && v->y <= 326) ||
 	(v->y >= (WIN_H - 133) && v->y <= (WIN_H - 25)))) ||
 	(v->x >= (v->len - 1) && v->x <= (WIN_W - 25) &&
 	v->y >= (WIN_H - 65) && v->y <= (WIN_H - 25)))
-		v->color = ft_shade_color(v->color, 0.35);
+	v->clr = ft_shade_color(v->clr, 0.35);
 	put_pixel(v, 0);
 }
 
@@ -76,12 +87,12 @@ void			fractal_mandelbrot(t_var *v)
 		v->zr = (v->zr * v->zr) - (v->zi * v->zi) + v->mr;
 		v->zi = v->mod * v->zi * v->tmp + v->mi;
 	}
-	v->color = ft_gradient_color(v->color1, v->color2, (v->i / v->imax));
+	v->clr = edit_hue_hex(v);
 	if (((v->x >= 25 && v->x <= 188) &&
 	((v->y >= 25 && v->y <= 213) || (v->y >= 237 && v->y <= 326) ||
 	(v->y >= (WIN_H - 133) && v->y <= (WIN_H - 25)))) ||
 	(v->x >= (v->len - 1) && v->x <= (WIN_W - 25) &&
 	v->y >= (WIN_H - 65) && v->y <= (WIN_H - 25)))
-		v->color = ft_shade_color(v->color, 0.35);
+	v->clr = ft_shade_color(v->clr, 0.35);
 	put_pixel(v, 0);
 }

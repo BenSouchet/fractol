@@ -6,7 +6,7 @@
 /*   By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 13:30:40 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/03 12:56:08 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/06 18:14:03 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,27 @@
 # define BUFF_SIZE 1
 # define D (double)
 # define MIN_V 105
+
+typedef struct	s_hsv
+{
+	double		h;
+	double		s;
+	double		v;
+}				t_hsv;
+
+typedef struct	s_percent
+{
+	double		r;
+	double		g;
+	double		b;
+}				t_percent;
+
+typedef struct	s_rgb
+{
+	int			r;
+	int			g;
+	int			b;
+}				t_rgb;
 
 int				ft_abs(int n);
 
@@ -55,5 +76,9 @@ int				ft_random_color(void);
 int				ft_tint_color(int clr, double val);
 int				ft_shade_color(int clr, double val);
 int				ft_gradient_color(int clr1, int clr2, double val);
+
+t_percent		ft_hex_to_percent(int hex);
+t_hsv			ft_hex_to_hsv(int hex);
+int				ft_hsv_to_hex(t_hsv hsv);
 
 #endif

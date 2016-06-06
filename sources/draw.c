@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:39:52 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/03 12:58:59 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/06 17:58:29 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		put_pixel(t_var *v, int type)
 			&& x < WIN_W && y >= 0 && y < WIN_H)
 	{
 		i = ((int)v->x * (v->bpp / 8)) + ((int)v->y * v->sl);
-		rgb = (char*)&v->color;
+		rgb = (char*)&v->clr;
 		v->d[i] = rgb[0];
 		v->d[++i] = rgb[1];
 		v->d[++i] = rgb[2];
@@ -95,7 +95,7 @@ void	mlx_draw(t_var *v, int x, int y, int clr)
 
 	tmp1 = v->x;
 	tmp2 = v->y;
-	v->color = ft_shade_color(clr, 0.20);
+	v->clr = ft_shade_color(clr, 0.20);
 	while (v->x <= x && put_pixel(v, 0) == 0)
 		v->x++;
 	while (v->y <= y && put_pixel(v, 0) == 0)
