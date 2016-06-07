@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:35:58 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/07 18:25:57 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:55:46 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ int		key_hook(int keycode, t_var *v)
 			v->jr = -1.1380;
 			v->ji = 0.2403;
 			v->clr_h = 230.;
-			v->clr_s = 67.;
-			v->clr_v = 67.;
+			v->clr_s = 0.67;
+			v->clr_v = 0.67;
 			v->m = ft_shade_color(UI_CLR, 0.45);
 		}
 		if (r > 0)
