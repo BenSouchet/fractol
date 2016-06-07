@@ -75,12 +75,20 @@ Open the Mandelbrot fractal ⇣
 <td valign="top" align="center"><kbd>&nbsp;►&nbsp;</kbd></td>
 </tr>
 <tr>
-<td valign="top" height="30px">Clockwise rotation on the Z axe</td>
+<td valign="top" height="30px">Increase the number of iterations</td>
 <td valign="top" align="center"><kbd>&nbsp;W&nbsp;</kbd></td>
 </tr>
 <tr>
-<td valign="top" height="30px">Counter clockwise rotation on the Z axe</td>
+<td valign="top" height="30px">Decrease the numbre of iterations</td>
 <td valign="top" align="center"><kbd>&nbsp;Q&nbsp;</kbd></td>
+</tr>
+<tr>
+<td valign="top" height="30px">Clockwise rotation on the Z axe</td>
+<td valign="top" align="center"><kbd>&nbsp;T&nbsp;</kbd></td>
+</tr>
+<tr>
+<td valign="top" height="30px">Counter clockwise rotation on the Z axe</td>
+<td valign="top" align="center"><kbd>&nbsp;R&nbsp;</kbd></td>
 </tr>
 <tr>
 <td valign="top" height="30px">Display the Julia fractal</td>
