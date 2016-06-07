@@ -29,7 +29,7 @@ Open the Mandelbrot fractal ⇣
 <table width="100%">
 <thead>
 <tr>
-<td width="90%" height="60px" align="center" cellpadding="0">
+<td width="85%" height="60px" align="center" cellpadding="0">
 <strong>Description</strong>
 </td>
 <td width="20%" align="center" cellpadding="0">
