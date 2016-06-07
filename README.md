@@ -51,6 +51,10 @@ Open the Mandelbrot fractal ⇣
 <td valign="top" align="center"><kbd>&nbsp;shift&nbsp;</kbd></td>
 </tr>
 <tr>
+<td valign="top" height="30px">Enable or disable the mouse control</td>
+<td valign="top" align="center"><kbd>&nbsp;M&nbsp;</kbd> or <kbd>&nbsp;S&nbsp;</kbd></td>
+</tr>
+<tr>
 <td valign="top" height="30px">Increase the global size of the fractal (aka zoom)</td>
 <td valign="top" align="center"><kbd>&nbsp;+&nbsp;</kbd></td>
 </tr>
