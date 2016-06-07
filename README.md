@@ -51,7 +51,7 @@ Open the Mandelbrot fractal ⇣
 <td valign="top" align="center"><kbd>&nbsp;shift&nbsp;</kbd></td>
 </tr>
 <tr>
-<td valign="top" height="30px">Enable or disable the mouse control</td>
+<td valign="top" height="30px">Enable or disable the mouse controls</td>
 <td valign="top" align="center"><kbd>&nbsp;M&nbsp;</kbd> or <kbd>&nbsp;S&nbsp;</kbd></td>
 </tr>
 <tr>
