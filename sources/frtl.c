@@ -6,7 +6,7 @@
 /*   By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:09:02 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/07 19:05:36 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/07 19:25:43 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,18 @@ int				edit_hue_hex(t_var *v)
 	t_rgb	rgb;
 
 	if (v->i == v->imax)
-	{
-		hsv.h = 0.;
-		hsv.s = 0.;
-		hsv.v = 0.;
-	}
+		return (0x000000);
 	else
 	{
-		hsv.h = v->clr_h + /*(v->i * 15);*/((240. / v->imax) * v->i);
+		hsv.h = v->clr_h + ((240. / v->imax) * v->i);
 		hsv.s = v->clr_s;
 		hsv.v = v->clr_v - (((v->clr_v - 0.10) / 100.0) * v->i);
-		//if (v->x == 0 && v->y == 0)
-		//	printf("%f -- %f -- %f\n", hsv.h, hsv.s, hsv.v);
 		while (hsv.h < 0.)
 			hsv.h += 360.0;
 		while (hsv.h > 360.)
 			hsv.h -= 360.0;
-	}
 		rgb = ft_hsv_to_rgb(hsv);
-		//if (v->x == 0 && v->y == 0)
-		//	printf("%f -- %f -- %f\n", rgb.r, rgb.g, rgb.b);
+	}
 	return (ft_rgb_to_hex(rgb));
 }
 
@@ -86,7 +78,7 @@ void			fractal_julia(t_var *v)
 	(v->y >= (WIN_H - 133) && v->y <= (WIN_H - 25)))) ||
 	(v->x >= (v->len - 1) && v->x <= (WIN_W - 25) &&
 	v->y >= (WIN_H - 65) && v->y <= (WIN_H - 25)))
-	v->clr = ft_shade_color(v->clr, 0.35);
+		v->clr = ft_shade_color(v->clr, 0.35);
 	put_pixel(v, 0);
 }
 
@@ -112,6 +104,6 @@ void			fractal_mandelbrot(t_var *v)
 	(v->y >= (WIN_H - 133) && v->y <= (WIN_H - 25)))) ||
 	(v->x >= (v->len - 1) && v->x <= (WIN_W - 25) &&
 	v->y >= (WIN_H - 65) && v->y <= (WIN_H - 25)))
-	v->clr = ft_shade_color(v->clr, 0.35);
+		v->clr = ft_shade_color(v->clr, 0.35);
 	put_pixel(v, 0);
 }

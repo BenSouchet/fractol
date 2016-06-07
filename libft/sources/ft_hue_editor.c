@@ -6,16 +6,16 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 18:01:39 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/07 18:17:00 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/07 19:27:47 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-t_percent   ft_rgb_to_percent(t_rgb rgb)
+t_percent		ft_rgb_to_percent(t_rgb rgb)
 {
-	t_percent   percent;
+	t_percent	percent;
 
 	percent.r = ((double)rgb.r / 255.);
 	percent.g = ((double)rgb.g / 255.);
@@ -23,10 +23,10 @@ t_percent   ft_rgb_to_percent(t_rgb rgb)
 	return (percent);
 }
 
-
-t_rgb		ft_hex_to_rgb(int hex)
+t_rgb			ft_hex_to_rgb(int hex)
 {
-	t_rgb   rgb;
+	t_rgb		rgb;
+
 	rgb.r = (((hex >> 16) & 0xFF) / 255.);
 	rgb.g = (((hex >> 8) & 0xFF) / 255.);
 	rgb.b = (((hex) & 0xFF) / 255.);
