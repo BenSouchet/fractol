@@ -2,7 +2,7 @@
 
 Fractol is a program developped for my learning course at 42 school for the exploration of Fractals.
 <img align="center" src="http://i.imgur.com/SRtIgLN.png" width="100%" />
-Several options are available (see [Keyboard shortcuts](https://github.com/Raiden-kazua/Fractol#keyboard-shortcuts) section for more infos) :
+Several options are available (see [Keyboard shortcuts](https://github.com/Raiden-kazua/Fractol#keyboard-shortcuts) or/and [Mouse controls](https://github.com/Raiden-kazua/Fractol#mouse-controls)sections for more infos) :
 * Zoom and unzoom
 * Change the number of iterations
 * Move the current fractal
@@ -33,7 +33,7 @@ Open the Mandelbrot fractal ⇣
 <strong>Description</strong>
 </td>
 <td width="100%" align="center" cellpadding="0">
-<span style="width:50px">&nbsp;</span><strong>Key(s)</strong><span style="width:50px">&nbsp;</span>
+<span style="width:70px">&nbsp;</span><strong>Key(s)</strong><span style="width:50px">&nbsp;</span>
 </td>
 </tr>
 </thead>
@@ -108,5 +108,7 @@ Open the Mandelbrot fractal ⇣
 </tr>
 </tbody>
 </table>
+## Mouse controls
+
 ## Contact & contribute
 If you want to contact me, or fix/improve Polygons, just send me a mail at **bsouchet@student.42.fr**
