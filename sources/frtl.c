@@ -6,7 +6,7 @@
 /*   By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 13:09:02 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/06 18:45:47 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:23:00 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,17 @@ void			rotate_fractal(t_var *v, int rot)
 int				edit_hue_hex(t_var *v)
 {
 	t_hsv	hsv;
+	t_rgb	rgb;
 
-	hsv = ft_hex_to_hsv(v->clr_frtl);
-	hsv.h += (((360.0 / v->imax) * v->i));
-	hsv.v += (((1.0 - hsv.v) / v->imax) * v->i);
-	return (ft_hsv_to_hex(hsv));
+	hsv.h = v->clr_h + ((360.0 / v->clr_h) * v->i);
+	hsv.s = v->clr_s;
+	hsv.v = v->clr_v;
+	while (hsv.h < 0.)
+		hsv.h += 360.0;
+	while (hsv.h > 360.)
+		hsv.h -= 360.0;
+	rgb = ft_hsv_to_rgb(hsv);
+	return (ft_rgb_to_hex(rgb));
 }
 
 void			fractal_julia(t_var *v)

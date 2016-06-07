@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rand.c                                          :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/12 15:23:53 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/07 16:11:48 by bsouchet         ###   ########.fr       */
+/*   Created: 2016/06/07 13:48:16 by bsouchet          #+#    #+#             */
+/*   Updated: 2016/06/07 13:48:56 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		ft_rand(int min, int max)
+double	ft_max(double num1, double num2)
 {
-	int i;
-	int cpy;
-	int num;
-	int	res;
-
-	i = 0;
-	res = 0;
-	num = (long)malloc(sizeof(long));
-	if (num < 0)
-		num = -num;
-	cpy = num;
-	while (num >= 10)
-	{
-		res += (num % 10);
-		num = num / 10;
-		i++;
-	}
-	res = res * 17 + cpy + i;
-	res = (res % (max - min + 1)) + min;
-	return (res);
+	if (num1 >= num2)
+		return (num1);
+	return (num2);
 }

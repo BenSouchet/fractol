@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:26:10 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/06 17:56:57 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:23:51 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ typedef struct	s_var
 	int			end;
 	int			rot;
 	int			clr;
-	int			clr_frtl;
+	double		clr_h;
+	double		clr_s;
+	double		clr_v;
 	int			m;
 	char		*d;
 	char		*nam;

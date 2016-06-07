@@ -6,7 +6,7 @@
 /*   By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/02 13:30:40 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/06 18:14:03 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:26:42 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define BUFF_SIZE 1
 # define D (double)
-# define MIN_V 105
+# define MIN_V 135
 
 typedef struct	s_hsv
 {
@@ -39,12 +39,15 @@ typedef struct	s_percent
 
 typedef struct	s_rgb
 {
-	int			r;
-	int			g;
-	int			b;
+	double		r;
+	double		g;
+	double		b;
 }				t_rgb;
 
 int				ft_abs(int n);
+
+double			ft_min(double num1, double num2);
+double			ft_max(double num1, double num2);
 
 int				ft_atoi(char *str, int *k, int r, int s);
 
@@ -72,13 +75,14 @@ char			*ft_firstupper(char *str);
 
 int				ft_rand(int min, int max);
 
-int				ft_random_color(void);
+t_hsv			ft_random_color(void);
 int				ft_tint_color(int clr, double val);
 int				ft_shade_color(int clr, double val);
 int				ft_gradient_color(int clr1, int clr2, double val);
 
-t_percent		ft_hex_to_percent(int hex);
-t_hsv			ft_hex_to_hsv(int hex);
-int				ft_hsv_to_hex(t_hsv hsv);
+t_percent		ft_rgb_to_percent(t_rgb rgb);
+t_rgb			ft_hsv_to_rgb(t_hsv hsv);
+t_rgb			ft_hex_to_rgb(int hex);
+int				ft_rgb_to_hex(t_rgb rgb);
 
 #endif

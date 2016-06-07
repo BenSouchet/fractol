@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:30:09 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/06 17:56:39 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:24:35 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,15 @@ static void		assign(t_var *v)
 	v->e = 0;
 	v->rot = 0;
 	v->z = 170.0;
-	v->padx = 0.0;
-	v->pady = 0.0;
-	v->imax = 50.0;
+	v->padx = 0.;
+	v->pady = 0.;
+	v->imax = 50.;
 	v->jr = -1.1380;
 	v->ji = 0.2403;
 	v->m = ft_shade_color(UI_CLR, 0.45);
-	v->clr_frtl = DEFAULT_CLR;
+	v->clr_h = 230.;
+	v->clr_s = 67.;
+	v->clr_v = 67.;
 }
 
 static void		init_win(t_var *v)

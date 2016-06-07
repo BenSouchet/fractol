@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:35:58 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/06 17:59:51 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:25:57 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int		expose_hook(t_var *v)
 
 int		key_hook(int keycode, t_var *v)
 {
-	int r;
+	int		r;
+	t_hsv	hsv;
 
 	r = 0;
 	if (keycode == 53)
@@ -43,7 +44,12 @@ int		key_hook(int keycode, t_var *v)
 		else if (keycode == 85 && v->num != 3 && ++r > 0)
 			v->num = 3;
 		else if ((keycode == 257 || keycode == 258) && ++r > 0)
-			v->clr_frtl = ft_random_color();
+		{
+			hsv = ft_random_color();
+			v->clr_h = hsv.h;
+			v->clr_s = hsv.s;
+			v->clr_v = hsv.v;
+		}
 		else if ((keycode == 1 || keycode == 46) && ++r > 0)
 			v->m = (v->m == UI_CLR) ? ft_shade_color(UI_CLR, 0.45) : UI_CLR;
 		else if (keycode == 123 && ++r > 0)
@@ -76,7 +82,9 @@ int		key_hook(int keycode, t_var *v)
 			v->imax = 50.0;
 			v->jr = -1.1380;
 			v->ji = 0.2403;
-			v->clr_frtl = DEFAULT_CLR;
+			v->clr_h = 230.;
+			v->clr_s = 67.;
+			v->clr_v = 67.;
 			v->m = ft_shade_color(UI_CLR, 0.45);
 		}
 		if (r > 0)

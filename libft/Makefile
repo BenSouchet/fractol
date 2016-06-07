@@ -6,7 +6,7 @@
 #    By: bsouchet <bsouchet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/02 15:48:09 by bsouchet          #+#    #+#              #
-#    Updated: 2016/06/06 18:03:14 by bsouchet         ###   ########.fr        #
+#    Updated: 2016/06/07 13:53:02 by bsouchet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ DIR_O = temporary
 HEADER = include
 
 SOURCES = ft_abs.c \
+		  ft_min.c \
+		  ft_max.c \
 		  ft_itoa.c \
 		  ft_atoi.c \
 		  ft_bzero.c \

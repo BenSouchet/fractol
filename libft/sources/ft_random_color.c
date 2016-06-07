@@ -6,32 +6,20 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/03 12:52:08 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/03 12:54:29 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:14:56 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int		ft_random_color(void)
+t_hsv		ft_random_color(void)
 {
-	int r;
-	int g;
-	int b;
+	t_hsv	hsv;
+	t_rgb	rgb;
 
-	r = 0;
-	g = 0;
-	b = 0;
-	while (42)
-	{
-		if ((r <= MIN_V && g <= MIN_V) || (r <= MIN_V && b <= MIN_V) ||
-				(g <= MIN_V && b <= MIN_V))
-		{
-			r = ft_rand(0, 255);
-			g = ft_rand(0, 255);
-			b = ft_rand(0, 255);
-		}
-		else
-			return (((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff));
-	}
-	return (0);
+	hsv.h = ((double)ft_rand(0, 3600) / 10.0);
+	hsv.s = ((double)ft_rand(600, 900) / 1000.0);
+	hsv.v = ((double)ft_rand(600, 900) / 1000.0);
+	return (hsv);
 }
