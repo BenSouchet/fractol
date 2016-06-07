@@ -110,5 +110,35 @@ Open the Mandelbrot fractal ⇣
 </table>
 ## Mouse controls
 
+<table width="100%">
+<thead>
+<tr>
+<td width="70%" height="60px" align="center" cellpadding="0">
+<strong>Description</strong>
+</td>
+<td width="10%" align="center" cellpadding="0">
+<span style="width:70px">&nbsp;</span><strong>Control(s)</strong><span style="width:50px">&nbsp;</span>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top" height="30px">Increase the global size of the fractal at the position of the cursor</td>
+<td valign="top" align="center"><kbd>&nbsp;left button&nbsp;</kbd></td>
+</tr>
+<tr>
+<td valign="top" height="30px">Decrease the global size of the fractal at the position of the cursor</td>
+<td valign="top" align="center"><kbd>&nbsp;right button&nbsp;</kbd></td>
+</tr>
+<tr>
+<td valign="top" height="30px">Increase the global size of the fractal (aka zoom)</td>
+<td valign="top" align="center"><kbd>&nbsp;scroll up&nbsp;</kbd></td>
+</tr>
+<tr>
+<td valign="top" height="30px">Decrease the global size of the fractal (aka unzoom)</td>
+<td valign="top" align="center"><kbd>&nbsp;scroll down&nbsp;</kbd></td>
+</tr>
+</tbody>
+</table>
 ## Contact & contribute
 If you want to contact me, or fix/improve Polygons, just send me a mail at **bsouchet@student.42.fr**
