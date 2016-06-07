@@ -33,7 +33,7 @@ Open the Mandelbrot fractal ⇣
 <strong>Description</strong>
 </td>
 <td width="100%" align="center" cellpadding="0">
-<span style="width:70px">&nbsp;</span><strong>Key(s)</strong><span style="width:50px">&nbsp;</span>
+<span style="width:400px">&nbsp;</span><strong>Key(s)</strong><span style="width:50px">&nbsp;</span>
 </td>
 </tr>
 </thead>
