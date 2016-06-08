@@ -72,3 +72,13 @@ int				ft_rgb_to_hex(t_rgb rgb)
 	b = (int)(rgb.b * 255.0);
 	return (((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff));
 }
+
+int             ft_hsv_to_hex(double h, double s, double v)
+{
+    t_hsv       hsv;
+    t_rgb       rgb;
+
+    hsv = (t_hsv){.h = h, .s = s, .v = v};
+    rgb = ft_hsv_to_rgb(hsv);
+    return (ft_rgb_to_hex(rgb));
+}

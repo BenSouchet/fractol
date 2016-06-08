@@ -49,9 +49,10 @@ int		key_hook(int keycode, t_var *v)
 			v->clr_h = hsv.h;
 			v->clr_s = hsv.s;
 			v->clr_v = hsv.v;
+            v->m = UI_DISABLE_CLR;
 		}
 		else if ((keycode == 1 || keycode == 46) && ++r > 0)
-			v->m = (v->m == UI_CLR) ? ft_shade_color(UI_CLR, 0.45) : UI_CLR;
+			v->m = (v->m == UI_CLR) ? UI_DISABLE_CLR : UI_CLR;
 		else if (keycode == 123 && ++r > 0)
 			v->padx -= 70.0;
 		else if (keycode == 124 && ++r > 0)
@@ -85,7 +86,7 @@ int		key_hook(int keycode, t_var *v)
 			v->clr_h = 358.;
 			v->clr_s = 0.80;
 			v->clr_v = 0.92;
-			v->m = ft_shade_color(UI_CLR, 0.45);
+			v->m = UI_DISABLE_CLR;
 		}
 		if (r > 0)
 		{

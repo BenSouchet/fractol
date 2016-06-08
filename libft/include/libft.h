@@ -25,24 +25,64 @@
 
 typedef struct	s_hsv
 {
-	double		h;
-	double		s;
-	double		v;
+    double		h;
+    double		s;
+    double		v;
 }				t_hsv;
 
 typedef struct	s_percent
 {
-	double		r;
-	double		g;
-	double		b;
+    double		r;
+    double		g;
+    double		b;
 }				t_percent;
 
 typedef struct	s_rgb
 {
-	double		r;
-	double		g;
-	double		b;
+    double		r;
+    double		g;
+    double		b;
 }				t_rgb;
+
+typedef struct  s_var
+{
+    int         e;
+    int         m;
+    int         x;
+    int         y;
+    int         sl;
+    int         len;
+    int         nbr;
+    int         num;
+    int         bpp;
+    int         end;
+    int         rot;
+    int         clr;
+    char        *d;
+    char        *nam;
+    char        ftl[3][12];
+    float       minx;
+    float       miny;
+    double      i;
+    double      z;
+    double      imax;
+    double      padx;
+    double      pady;
+    double      clr_h;
+    double      clr_s;
+    double      clr_v;
+    long double jr;
+    long double ji;
+    long double mr;
+    long double mi;
+    long double zr;
+    long double zi;
+    long double tmp;
+    long double mod;
+    void        *img;
+    void        *mlx;
+    void        *win;
+}               t_var;
 
 int				ft_abs(int n);
 
@@ -84,5 +124,6 @@ t_percent		ft_rgb_to_percent(t_rgb rgb);
 t_rgb			ft_hsv_to_rgb(t_hsv hsv);
 t_rgb			ft_hex_to_rgb(int hex);
 int				ft_rgb_to_hex(t_rgb rgb);
+int             ft_hsv_to_hex(double h, double s, double v);
 
 #endif
