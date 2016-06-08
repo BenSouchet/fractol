@@ -79,12 +79,12 @@ int		key_hook(int keycode, t_var *v)
 			v->z = 170.0;
 			v->padx = 0.0;
 			v->pady = 0.0;
-			v->imax = 50.0;
+			v->imax = 21.0;
 			v->jr = -1.1380;
 			v->ji = 0.2403;
-			v->clr_h = 230.;
-			v->clr_s = 0.67;
-			v->clr_v = 0.67;
+			v->clr_h = 358.;
+			v->clr_s = 0.80;
+			v->clr_v = 0.92;
 			v->m = ft_shade_color(UI_CLR, 0.45);
 		}
 		if (r > 0)

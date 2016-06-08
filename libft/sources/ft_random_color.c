@@ -11,14 +11,13 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 t_hsv		ft_random_color(void)
 {
 	t_hsv	hsv;
 
 	hsv.h = ((double)ft_rand(0, 3600) / 10.0);
-	hsv.s = ((double)ft_rand(600, 800) / 1000.0);
-	hsv.v = ((double)ft_rand(600, 800) / 1000.0);
+	hsv.s = ((double)ft_rand(740, 810) / 1000.0);
+	hsv.v = ((double)ft_rand(800, 950) / 1000.0);
 	return (hsv);
 }

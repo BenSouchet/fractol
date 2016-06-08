@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 t_percent		ft_rgb_to_percent(t_rgb rgb)
 {

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 void			rotate_fractal(t_var *v, int rot)
 {
@@ -84,7 +83,7 @@ void			fractal_julia(t_var *v)
 
 void			fractal_mandelbrot(t_var *v)
 {
-	v->i = -1.0;
+	v->i = -2.0;
 	v->zr = 0.0;
 	v->zi = 0.0;
 	v->mod = (v->num == 2) ? 2 : -2;
