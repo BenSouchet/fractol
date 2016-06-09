@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:35:58 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/07 18:55:46 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:20:39 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		key_hook(int keycode, t_var *v)
 			v->clr_h = hsv.h;
 			v->clr_s = hsv.s;
 			v->clr_v = hsv.v;
-            v->m = UI_DISABLE_CLR;
+			v->m = UI_DISABLE_CLR;
 		}
 		else if ((keycode == 1 || keycode == 46) && ++r > 0)
 			v->m = (v->m == UI_CLR) ? UI_DISABLE_CLR : UI_CLR;

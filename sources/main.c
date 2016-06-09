@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:30:09 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/07 18:34:10 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:20:03 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void		assign(t_var *v)
 	v->clr_h = 358.;
 	v->clr_s = 0.80;
 	v->clr_v = 0.92;
-    v->m = UI_DISABLE_CLR;
+	v->m = UI_DISABLE_CLR;
 }
 
 static void		init_win(t_var *v)

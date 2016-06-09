@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/06 18:01:39 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/07 19:27:47 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:19:39 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ int				ft_rgb_to_hex(t_rgb rgb)
 	return (((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff));
 }
 
-int             ft_hsv_to_hex(double h, double s, double v)
+int				ft_hsv_to_hex(double h, double s, double v)
 {
-    t_hsv       hsv;
-    t_rgb       rgb;
+	t_hsv		hsv;
+	t_rgb		rgb;
 
-    hsv = (t_hsv){.h = h, .s = s, .v = v};
-    rgb = ft_hsv_to_rgb(hsv);
-    return (ft_rgb_to_hex(rgb));
+	hsv = (t_hsv){.h = h, .s = s, .v = v};
+	rgb = ft_hsv_to_rgb(hsv);
+	return (ft_rgb_to_hex(rgb));
 }
