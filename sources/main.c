@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:30:09 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/09 15:20:03 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/09 17:37:44 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,7 @@ static void		init_win(t_var *v)
 {
 	assign(v);
 	v->mlx = mlx_init();
-	v->img = mlx_new_image(v->mlx, WIN_W, WIN_H);
 	v->win = mlx_new_window(v->mlx, -1, -1, WIN_W, WIN_H, PROG_NAME);
-	v->d = mlx_get_data_addr(v->img, &v->bpp, &v->sl, &v->end);
 	mlx_expose_hook(v->win, expose_hook, v);
 	mlx_hook(v->win, 6, 64, motion_hook, v);
 	mlx_hook(v->win, 17, 0, close_hook, v);
