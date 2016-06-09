@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 18:35:58 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/09 15:20:39 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:58:26 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		expose_hook(t_var *v)
 int		key_hook(int keycode, t_var *v)
 {
 	int		r;
-	t_hsv	hsv;
 
 	r = 0;
 	if (keycode == 53)
@@ -37,57 +36,10 @@ int		key_hook(int keycode, t_var *v)
 	}
 	else
 	{
-		if (keycode == 83 && v->num != 1 && ++r > 0)
-			v->num = 1;
-		else if (keycode == 84 && v->num != 2 && ++r > 0)
-			v->num = 2;
-		else if (keycode == 85 && v->num != 3 && ++r > 0)
-			v->num = 3;
-		else if ((keycode == 257 || keycode == 258) && ++r > 0)
-		{
-			hsv = ft_random_color();
-			v->clr_h = hsv.h;
-			v->clr_s = hsv.s;
-			v->clr_v = hsv.v;
-			v->m = UI_DISABLE_CLR;
-		}
-		else if ((keycode == 1 || keycode == 46) && ++r > 0)
-			v->m = (v->m == UI_CLR) ? UI_DISABLE_CLR : UI_CLR;
-		else if (keycode == 123 && ++r > 0)
-			v->padx -= 70.0;
-		else if (keycode == 124 && ++r > 0)
-			v->padx += 70.0;
-		else if (keycode == 126 && ++r > 0)
-			v->pady -= 70.0;
-		else if (keycode == 125 && ++r > 0)
-			v->pady += 70.0;
-		else if (keycode == 69 && ++r > 0)
-			v->z += (v->z * 0.30);
-		else if (keycode == 78 && (v->z > 10 || v->z < -10) && ++r > 0)
-			v->z -= (v->z * 0.30);
-		else if (keycode == 12 && v->imax > 2 && ++r > 0)
-			v->imax -= 2.0;
-		else if (keycode == 13 && ++r > 0)
-			v->imax += 2.0;
-		else if (keycode == 15 && ++r > 0)
-			v->rot -= 90;
-		else if (keycode == 17 && ++r > 0)
-			v->rot += 90;
-		else if (keycode == 71 && ++r > 0)
-		{
-			v->e = 0;
-			v->rot = 0;
-			v->z = 170.0;
-			v->padx = 0.0;
-			v->pady = 0.0;
-			v->imax = 21.0;
-			v->jr = -1.1380;
-			v->ji = 0.2403;
-			v->clr_h = 358.;
-			v->clr_s = 0.80;
-			v->clr_v = 0.92;
-			v->m = UI_DISABLE_CLR;
-		}
+		if (keycode >= 1 && keycode <= 123 && ++r > 0)
+			controls_part_one(v, keycode);
+		else if (keycode >= 124 && keycode <= 258 && ++r > 0)
+			controls_part_two(v, keycode);
 		if (r > 0)
 		{
 			mlx_destroy_image(v->mlx, v->img);

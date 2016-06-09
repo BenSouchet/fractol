@@ -6,7 +6,7 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/02 17:26:10 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/07 18:23:51 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/09 15:57:41 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,9 @@ void			mlx_draw(t_var *v, int x, int y, int clr);
 void			fractal_julia(t_var *v);
 void			fractal_mandelbrot(t_var *v);
 void			rotate_fractal(t_var *v, int rot);
+
+void			controls_part_one(t_var *v, int keycode);
+void			controls_part_two(t_var *v, int keycode);
+void			reset_values(t_var *v);
 
 #endif
