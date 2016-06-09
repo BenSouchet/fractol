@@ -6,12 +6,11 @@
 /*   By: bsouchet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 15:23:53 by bsouchet          #+#    #+#             */
-/*   Updated: 2016/06/07 16:11:48 by bsouchet         ###   ########.fr       */
+/*   Updated: 2016/06/09 18:01:39 by bsouchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int		ft_rand(int min, int max)
 {
