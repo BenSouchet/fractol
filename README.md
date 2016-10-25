@@ -1,8 +1,8 @@
 # Fractol
 
-Fractol is a program developped for my learning course at 42 school for the exploration of Fractals.
+Fractol is a program developed for my learning course at 42 school for the exploration of Fractals.
 <img align="center" src="http://i.imgur.com/SRtIgLN.png" width="100%" />
-Several options are available (see [Keyboard shortcuts](https://github.com/Raiden-kazua/Fractol#keyboard-shortcuts) or/and [Mouse controls](https://github.com/Raiden-kazua/Fractol#mouse-controls) sections for more infos) :
+Several options are available (see [Keyboard shortcuts](https://github.com/BenjaminSouchet/Fractol#keyboard-shortcuts) or/and [Mouse controls](https://github.com/BenjaminSouchet/Fractol#mouse-controls) sections for more infos) :
 * Zoom and unzoom
 * Change the number of iterations
 * Move the current fractal
@@ -13,7 +13,7 @@ Several options are available (see [Keyboard shortcuts](https://github.com/Raide
 
 ## Install & launch
 ```bash
-git clone https://github.com/Raiden-kazua/Fractol ~/Fractol
+git clone https://github.com/BenjaminSouchet/Fractol ~/Fractol
 cd ~/Fractol && ./fractol Julia
 ```
 You have to launch the program with a parameter. This is the name of the fractal you would like to open at the execution of the program. This parameter as to be the name of a valid fractal (Julia, Mandelbrot or Tricorn).<br />
